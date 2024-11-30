@@ -59,4 +59,3 @@ resume:
       description: "Built a CI/CD pipeline using Jenkins, Docker, and Kubernetes."
     - title: "Infrastructure as Code"
       description: "Developed infrastructure as code with Terraform on AWS."
-
