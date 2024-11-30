@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Engineer Resume</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .header .sub-title {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        .skills-list i {
+            font-size: 2rem;
+            margin: 5px;
+            color: #007bff;
+        }
+
+        .progress-bar {
+            height: 10px;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-header {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+
+        .footer {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .print-btn {
+            display: none;
+        }
+
+        @media print {
+            .container {
+                width: 100%;
+            }
+
+            .header img {
+                display: none;
+            }
+
+            .print-btn {
+                display: block;
+            }
+
+            .footer {
+                display: none;
+            }
+        }
+
+        /* Dark mode toggle styles */
+        .dark-mode {
+            background-color: #343a40;
+            color: white;
+        }
+
+        .dark-mode .header,
+        .dark-mode .card,
+        .dark-mode .footer {
+            background-color: #23272b;
+            color: white;
+        }
+
+        .dark-mode .progress-bar {
+            background-color: #61dafb;
+        }
+
+        .dark-mode .skills-list i {
+            color: #61dafb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="d-flex justify-content-center align-items-center">
+                <img src="https://via.placeholder.com/120" alt="Avatar">
+                <div>
+                    <h1>John Doe</h1>
+                    <p class="sub-title">DevOps Engineer</p>
+                    <div>
+                        <a href="mailto:john.doe@example.com" class="btn btn-link"><i class="fas fa-envelope"></i> john.doe@example.com</a>
+                        <a href="tel:+1234567890" class="btn btn-link"><i class="fas fa-phone-alt"></i> +1 234 567 890</a>
+                        <a href="https://www.linkedin.com/in/johndoe" class="btn btn-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                        <a href="https://github.com/johndoe" class="btn btn-link"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="mb-4">
+            <h3>Skills</h3>
+            <ul class="list-inline skills-list">
+                <li class="list-inline-item"><i class="fab fa-aws"></i></li>
+                <li class="list-inline-item"><i class="fab fa-docker"></i></li>
+                <li class="list-inline-item"><i class="fab fa-kubernetes"></i></li>
+                <li class="list-inline-item"><i class="fas fa-cloud"></i></li>
+                <li class="list-inline-item"><i class="fas fa-cogs"></i></li>
+                <li class="list-inline-item"><i class="fab fa-jenkins"></i></li>
+                <li class="list-inline-item"><i class="fas fa-code-branch"></i></li>
+            </ul>
+            <div class="mb-3">
+                <h5>AWS</h5>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <h5>Docker</h5>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Experience Section -->
+        <div class="mb-4">
+            <h3>Experience</h3>
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-building"></i> Company A | DevOps Engineer
+                </div>
+                <div class="card-body">
+                    <p><strong>Responsibilities:</strong></p>
+                    <ul>
+                        <li>Designed and implemented CI/CD pipelines using Jenkins and Terraform.</li>
+                        <li>Managed Kubernetes clusters on AWS EKS.</li>
+                        <li>Automated infrastructure provisioning with Terraform and CloudFormation.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="mb-4">
+            <h3>Projects</h3>
+            <div class="d-flex flex-wrap">
+                <div class="card me-3 mb-3" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">CI/CD Pipeline ⚙️</h5>
+                        <p class="card-text">Built a CI/CD pipeline using Jenkins and Docker for automated deployments.</p>
+                    </div>
+                </div>
+                <div class="card me-3 mb-3" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">AWS Infrastructure 🌥️</h5>
+                        <p class="card-text">Provisioned AWS resources using Terraform and managed EKS clusters.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education Section -->
+        <div class="mb-4">
+            <h3>Education</h3>
+            <p><i class="fas fa-graduation-cap"></i> B.Sc. in Computer Science | University A</p>
+        </div>
+
+        <!-- Certifications Section -->
+        <div class="mb-4">
+            <h3>Certifications</h3>
+            <p><i class="fab fa-aws"></i> AWS Certified Solutions Architect</p>
+            <p><i class="fab fa-kubernetes"></i> Kubernetes Certified Administrator</p>
+        </div>
+        
+        <!-- Footer Section -->
+        <div class="footer">
+            <p>Contact me for collaboration!</p>
+            <a href="mailto:john.doe@example.com"><i class="fas fa-envelope"></i> Email</a> |
+            <a href="tel:+1234567890"><i class="fas fa-phone-alt"></i> Phone</a> |
+            <a href="https://www.linkedin.com/in/johndoe"><i class="fab fa-linkedin"></i> LinkedIn</a> |
+            <a href="https://github.com/johndoe"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+    </div>
+
+    <!-- Print Button -->
+    <button class="print-btn btn btn-primary mt-3" onclick="window.print()">Print Resume</button>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
