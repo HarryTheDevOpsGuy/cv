@@ -4,14 +4,17 @@ url: "https://example.com"
 baseurl: "/"
 
 # Markdown options
-markdown: kramdown
+# markdown: kramdown
+
+bootstrap: true
+theme: jekyll-bootstrap5
 
 # Collections for custom layouts
-collections:
-  resume:
-    output: true
-  blog:
-    output: true
+# collections:
+#   resume:
+#     output: true
+#   blog:
+#     output: true
 
 # Plugins (Optional)
 plugins:
