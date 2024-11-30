@@ -5,10 +5,6 @@ baseurl: "/"
 
 # Markdown options
 # markdown: kramdown
-
-bootstrap: true
-theme: jekyll-bootstrap5
-
 # Collections for custom layouts
 # collections:
 #   resume:
