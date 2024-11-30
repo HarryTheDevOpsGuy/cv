@@ -1,9 +1,20 @@
-title: Hari Prasad's DevOps Portfolio
-description: A senior DevOps engineer’s portfolio showcasing experience, skills, and projects.
-url: "https://harrythedevopsguy.github.io"
-author:
-  name: Hari Prasad
-  email: HarryTheDevOpsGuy@gmail.com
-  github: https://github.com/HarryTheDevOpsGuy
-  linkedin: https://linkedin.com/in/HarryTheDevOpsGuy
-  location: "City, State, Country"
+title: "Harry's DevOps Portfolio"
+description: "A Senior DevOps Engineer with over 11 years of experience"
+url: "https://example.com"
+baseurl: "/"
+
+# Markdown options
+markdown: kramdown
+
+# Collections for custom layouts
+collections:
+  resume:
+    output: true
+  blog:
+    output: true
+
+# Plugins (Optional)
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap

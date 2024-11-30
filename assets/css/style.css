@@ -1,0 +1,20 @@
+ /* Custom styles */
+ body {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  h1, h2, h3 {
+    font-weight: bold;
+  }
+  
+  .navbar {
+    margin-bottom: 20px;
+  }
+  
+  footer {
+    margin-top: 40px;
+  }
+  
+  .section {
+    padding: 40px 0;
+  }
