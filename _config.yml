@@ -1,0 +1,6 @@
+title: DevOps Engineer Resumes
+description: Professional DevOps Engineer Resumes built using Jekyll and Bootstrap 5
+baseurl: ""
+url: "https://your-github-pages-url"
+theme: jekyll-theme-slate
+
