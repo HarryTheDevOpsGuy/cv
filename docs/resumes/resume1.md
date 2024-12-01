@@ -6,7 +6,7 @@ permalink: /resume1.html
 
 <div class="container mt-5">
     <h2>Modern DevOps Resume</h2>
-    <div id="resume1Div" class="border p-4 d-print-block" contenteditable="true">
+    <div id="resume1Div" class="border p-4 printable-area" contenteditable="true">
         <h4>John Doe</h4>
         <p><strong>Title:</strong> Senior DevOps Engineer</p>
         <p><strong>Location:</strong> New York, USA</p>
@@ -24,8 +24,6 @@ permalink: /resume1.html
         <h5>Education</h5>
         <p>Master's in Computer Science, XYZ University</p> 
     </div>
-    <div class="printable">
-        <button onclick="window.print()" class="btn btn-success">Print Resume</button>
-    </div>
+    <button onclick="window.print()" class="btn btn-success">Print Resume</button>
 </div>
 
