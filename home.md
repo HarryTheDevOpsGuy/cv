@@ -1,5 +1,5 @@
 ---
-layout: base
+layout: home
 title: "My HOME page"
 permalink: /home/
 ---
