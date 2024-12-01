@@ -1,7 +1,7 @@
 ---
 layout: base
 title: "Home - You can select resume"
-permalink: /index.html
+permalink: /home.html
 ---
 
 <div class="container mt-5">
