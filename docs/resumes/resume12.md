@@ -1,7 +1,7 @@
 ---
 layout: base
 title: "My print page"
-permalink: /resume10.html
+permalink: /resume12.html
 ---
 <div class="container py-5">
     <h2>Stylish DevOps Manager Resume </h2>
