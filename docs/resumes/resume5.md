@@ -5,7 +5,7 @@ permalink: /resume5.html
 ---
 <div class="container mt-5">
     <h2>Trendy DevOps Resume</h2>
-    <div class="printable-area border" contenteditable="true">
+    <div class="printable-area border p-4" contenteditable="true">
         <h3 class="text-primary">Michael Johnson</h3>
         <p>Cloud Solutions Architect | DevOps Specialist</p>
         <div class="row">

@@ -5,7 +5,7 @@ permalink: /resume6.html
 ---
 <div class="container mt-5">
     <h2>Classic DevOps Resume</h2>
-    <div class="printable-area border p-1" contenteditable="true">
+    <div class="printable-area border p-4" contenteditable="true">
         <h3 class="text-primary">Jane Smith</h3>
         <p>DevOps Engineer | System Administrator</p>
         <div class="row">
