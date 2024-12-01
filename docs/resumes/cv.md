@@ -6,7 +6,7 @@ permalink: /cv.html
 
 <div class="container mt-5">
     <h2>Welcome to My Resume Hub</h2>
-    <div id="resumeCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div id="resumeCarousel" class="carousel slide printable-area" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active printable-area">
                 <h4>John Doe</h4>
