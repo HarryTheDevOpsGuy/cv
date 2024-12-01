@@ -9,7 +9,7 @@ permalink: /resume6.html
         <h3 class="text-primary">Jane Smith</h3>
         <p>DevOps Engineer | System Administrator</p>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-lg-6">
                 <h5>Technical Skills</h5>
                 <ul>
                     <li>AWS, GCP, Azure</li>
@@ -17,7 +17,7 @@ permalink: /resume6.html
                     <li>Linux Administration</li>
                 </ul>
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-6">
                 <h5>Work Experience</h5>
                 <p><strong>Senior DevOps Engineer</strong> at DEF Ltd (2020 - Present)</p>
                 <p><strong>Cloud Engineer</strong> at GHI Tech (2017 - 2020)</p>
