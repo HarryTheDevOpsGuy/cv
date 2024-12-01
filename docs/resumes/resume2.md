@@ -25,26 +25,3 @@ permalink: /resume2.html
     </div>
     <button onclick="window.print()" class="btn btn-success">Print Resume</button>
 </div>
-
-<div class="container mt-5">
-    <h2>Classic DevOps Resume</h2>
-    <div id="resume2Div" class="printable-area" contenteditable="true">
-        <h4>Jane Smith</h4>
-        <p><strong>Title:</strong> DevOps Engineer</p>
-        <p><strong>Location:</strong> San Francisco, CA</p>
-        <p><strong>Contact:</strong> jane.smith@example.com</p>
-        <h5>Professional Summary</h5>
-        <p>Experienced DevOps professional with expertise in cloud infrastructure and automation.</p>
-        <h5>Skills</h5>
-        <ul>
-            <li>AWS, Jenkins, Docker, Kubernetes</li>
-            <li>Infrastructure as Code (IaC)</li>
-        </ul>
-        <h5>Experience</h5>
-        <ul>
-            <li>Implemented CI/CD pipelines with Jenkins and Docker</li>
-            <li>Managed Kubernetes clusters on AWS</li>
-        </ul>
-    </div>
-    <button onclick="window.print()" class="btn btn-success">Print Resume</button>
-</div>
