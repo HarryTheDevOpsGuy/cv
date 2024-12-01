@@ -4,9 +4,9 @@ title: "My HOME page"
 permalink: /resume1.html
 ---
 
-<div class="container mt-5 d-print-block">
+<div class="container mt-5">
     <h2>Modern DevOps Resume</h2>
-    <div id="resume1Div" class="border p-4" contenteditable="true">
+    <div id="resume1Div" class="border p-4 d-print-block" contenteditable="true">
         <h4>John Doe</h4>
         <p><strong>Title:</strong> Senior DevOps Engineer</p>
         <p><strong>Location:</strong> New York, USA</p>
