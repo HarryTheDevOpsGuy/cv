@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YAML Resume Editor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">YAML Resume Editor</h1>
+    <div class="input-group mb-3">
+        <input type="text" id="resumeName" class="form-control" placeholder="Enter resume name">
+        <button id="addNewBtn" class="btn btn-primary"><i class="fas fa-plus"></i> Add New</button>
+    </div>
+    <div id="editor" class="border p-3 mb-3" style="height: 300px;"></div>
+    <button id="saveBtn" class="btn btn-success mb-3 w-100"><i class="fas fa-save"></i> Save</button>
+    <button id="downloadBtn" class="btn btn-info mb-3 w-100"><i class="fas fa-download"></i> Download YAML</button>
+    <input type="file" id="uploadInput" class="form-control mb-3" accept=".yaml, .yml">
+    <ul id="resumeList" class="list-group mb-3"></ul>
+    <button id="clearAllBtn" class="btn btn-danger w-100 mb-3"><i class="fas fa-trash-alt"></i> Clear All Data</button>
+
+    <div id="trendingResume" class="border p-3 mt-3"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+
+<script>
+    const defaultYamlData = `
+name: John Doe
+title: Software Engineer
+experience:
+  - company: ABC Corp
+    position: Senior Developer
+    duration: 3 years
+  - company: XYZ Inc
+    position: Developer
+    duration: 2 years
+education:
+  - institution: University of Tech
+    degree: BSc in Computer Science
+    graduation_year: 2015
+skills:
+  - Programming
+  - Problem Solving
+  - Teamwork
+`;
+
+    const editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/yaml");
+    editor.setTheme("ace/theme/github");
+
+    $(document).ready(function () {
+        loadResumes();
+        loadDefaultResume();
+        loadTrendingResume();
+    });
+
+    $('#saveBtn').on('click', function () {
+        saveResume();
+    });
+
+    $('#addNewBtn').on('click', function () {
+        editor.setValue(defaultYamlData);
+        $('#resumeName').val('');
+    });
+
+    $('#clearAllBtn').on('click', function () {
+        if (confirm('Are you sure you want to clear all resume data?')) {
+            localStorage.removeItem('resumes');
+            localStorage.removeItem('defaultResume');
+            loadResumes();
+            editor.setValue('');
+            $('#resumeName').val('');
+            alert('All resume data cleared.');
+        }
+    });
+
+    $('#downloadBtn').on('click', function () {
+        downloadYaml();
+    });
+
+    $('#uploadInput').on('change', function (e) {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                const yamlData = event.target.result;
+                try {
+                    jsyaml.load(yamlData); // Validate YAML data
+                    editor.setValue(yamlData);
+                    alert('YAML file loaded successfully!');
+                } catch (e) {
+                    alert('Invalid YAML file.');
+                }
+            };
+            reader.readAsText(file);
+        }
+    });
+
+    function saveResume() {
+        try {
+            const yamlData = editor.getValue();
+            jsyaml.load(yamlData); // Validate YAML data
+            const resumeName = $('#resumeName').val() || `Resume ${Date.now()}`;
+            let resumes = JSON.parse(localStorage.getItem('resumes')) || {};
+            resumes[resumeName] = yamlData;
+            localStorage.setItem('resumes', JSON.stringify(resumes));
+            loadResumes();
+            alert('YAML saved successfully!');
+        } catch (e) {
+            alert('Invalid YAML data.');
+        }
+    }
+
+    function loadResumes() {
+        const resumes = JSON.parse(localStorage.getItem('resumes')) || {};
+        $('#resumeList').empty();
+        for (const [name, resume] of Object.entries(resumes)) {
+            const defaultBadge = localStorage.getItem('defaultResume') === name ?
+                '<span class="badge bg-primary ms-2">Default</span>' : '';
+            const resumeItem = `<li class="list-group-item d-flex justify-content-between align-items-center">
+                ${name} ${defaultBadge}
+                <span>
+                    <button class="btn btn-sm btn-primary me-2 setDefault" data-name="${name}" title="Set as Default"><i class="fas fa-star"></i></button>
+                    <button class="btn btn-sm btn-secondary me-2 editResume" data-name="${name}" title="Edit"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-sm btn-danger deleteResume" data-name="${name}" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                </span>
+            </li>`;
+            $('#resumeList').append(resumeItem);
+        }
+    }
+
+    $(document).on('click', '.editResume', function () {
+        const name = $(this).data('name');
+        const resumes = JSON.parse(localStorage.getItem('resumes'));
+        editor.setValue(resumes[name]);
+        $('#resumeName').val(name);
+    });
+
+    $(document).on('click', '.deleteResume', function () {
+        const name = $(this).data('name');
+        let resumes = JSON.parse(localStorage.getItem('resumes'));
+        delete resumes[name];
+        localStorage.setItem('resumes', JSON.stringify(resumes));
+        loadResumes();
+        editor.setValue('');
+        $('#resumeName').val('');
+    });
+
+    $(document).on('click', '.setDefault', function () {
+        const name = $(this).data('name');
+        localStorage.setItem('defaultResume', name);
+        loadResumes();
+        loadTrendingResume();
+    });
+
+    function loadDefaultResume() {
+        const defaultResume = localStorage.getItem('defaultResume');
+        if (defaultResume) {
+            const resumes = JSON.parse(localStorage.getItem('resumes'));
+            if (resumes[defaultResume]) {
+                editor.setValue(resumes[defaultResume]);
+                $('#resumeName').val(defaultResume);
+            }
+        }
+    }
+
+    function loadTrendingResume() {
+        const trendingResume = localStorage.getItem('defaultResume');
+        if (trendingResume) {
+            const resumes = JSON.parse(localStorage.getItem('resumes'));
+            if (resumes[trendingResume]) {
+                const resumeData = jsyaml.load(resumes[trendingResume]);
+                const trendingHtml = `
+                    <h3>${resumeData.name}</h3>
+                    <h4>${resumeData.title}</h4>
+                    <h5>Experience</h5>
+                    <ul>
+                        ${resumeData.experience.map(exp => `<li>${exp.position} at ${exp.company} (${exp.duration})</li>`).join('')}
+                    </ul>
+                    <h5>Education</h5>
+                    <ul>
+                        ${resumeData.education.map(edu => `<li>${edu.degree} from ${edu.institution} (${edu.graduation_year})</li>`).join('')}
+                    </ul>
+                    <h5>Skills</h5>
+                    <ul>
+                        ${resumeData.skills.map(skill => `<li>${skill}</li>`).join('')}
+                    </ul>
+                `;
+                $('#trendingResume').html(trendingHtml);
+            }
+        } else {
+            $('#trendingResume').html('<p>No default resume set.</p>');
+        }
+    }
+
+    function downloadYaml() {
+        const yamlData = editor.getValue();
+        const blob = new Blob([yamlData], { type: 'application/x-yaml' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'resume.yaml';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+</script>
+</body>
+</html>
