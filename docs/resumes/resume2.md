@@ -10,7 +10,7 @@ permalink: /resume2.html
             <h2>Welcome to Our Website</h2>
             <p>This is a sample website created using Bootstrap. You can find various articles and services here.</p>
             <!-- Printable Article Section -->
-            <div class="printable-area border p-4 mt-4">
+            <div class="printable-area">
                 <h3>Printable Article Title</h3>
                 <p>This is the content of the article that is meant to be printed. It contains valuable information that you can take with you.</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
