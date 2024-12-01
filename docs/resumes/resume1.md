@@ -22,10 +22,10 @@ permalink: /resume1.html
             <li>Continuous Integration and Delivery (CI/CD)</li>
         </ul>
         <h5>Education</h5>
-        <p>Master's in Computer Science, XYZ University</p>
-        <div class="printable">
-            <button onclick="window.print()" class="btn btn-success">Print Resume</button>
-        </div>
+        <p>Master's in Computer Science, XYZ University</p> 
+    </div>
+    <div class="printable">
+        <button onclick="window.print()" class="btn btn-success">Print Resume</button>
     </div>
 </div>
 
