@@ -4,7 +4,7 @@ title: "My HOME page"
 permalink: /resume1.html
 ---
 
-<div class="container mt-5">
+<div class="container mt-5 d-print-block">
     <h2>Modern DevOps Resume</h2>
     <div id="resume1Div" class="border p-4" contenteditable="true">
         <h4>John Doe</h4>
