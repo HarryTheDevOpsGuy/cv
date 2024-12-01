@@ -16,7 +16,7 @@ permalink: /resume2.html
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <p>For more information, please contact us.</p>
             </div>
-            <button class="btn btn-success mt-3" onclick="printArticle()">Print Article</button>
+            <button class="btn btn-success mt-3" onclick="window.print()">Print Article</button>
         </div>
     </div>
 </div>
