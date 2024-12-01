@@ -1,7 +1,7 @@
 ---
 layout: base
 title: "My print page"
-permalink: /resume8.html
+permalink: /resume9.html
 ---
 <!-- Resume Container -->
     <div class="container printable-area my-5 border p-4 shadow-lg rounded">
