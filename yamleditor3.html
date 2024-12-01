@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YAML Resume Editor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/dracula.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1>YAML Resume Editor</h1>
+    <div class="mb-3">
+        <button class="btn btn-primary" onclick="saveYAML()">Save Resume</button>
+        <button class="btn btn-secondary" onclick="viewSavedData()">View Saved Resumes</button>
+        <button class="btn btn-success" onclick="addNewResume()">Add New Resume</button>
+    </div>
+
+    <div class="mt-4">
+        <h4>Resumes List:</h4>
+        <ul id="resume-list" class="list-group"></ul>
+    </div>
+
+    <div class="mt-4">
+        <textarea id="yaml-editor" class="form-control" rows="15"></textarea>
+    </div>
+
+    <div id="error-message" class="alert alert-danger mt-3" style="display: none;"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/yaml/yaml.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-yaml@4.0.0/dist/js-yaml.min.js"></script>
+
+<script>
+    // YAML Editor Configuration
+    const defaultYAML = `name: John Doe
+title: DevOps Engineer
+contact: "(123) 456-7890 | johndoe@email.com"
+experience:
+  - company: ABC Corp
+    job_title: Senior DevOps Engineer
+    years: 2020-2023
+    responsibilities:
+      - Implemented CI/CD pipelines with Jenkins, Docker, Kubernetes
+      - Collaborated with cross-functional teams for automation
+skills:
+  - Docker
+  - Kubernetes
+  - Terraform
+  - AWS
+education:
+  - institution: XYZ University
+    degree: Bachelor of Science in Computer Science
+    years: 2016-2020
+certifications:
+  - name: AWS Certified Solutions Architect
+    year: 2022
+  - name: Docker Certified Associate
+    year: 2021`;
+
+    const yamlEditor = CodeMirror.fromTextArea(document.getElementById('yaml-editor'), {
+        lineNumbers: true,
+        mode: "yaml",
+        theme: "dracula",
+        lineWrapping: true,
+    });
+
+    const errorElement = document.getElementById("error-message");
+    const resumeListElement = document.getElementById("resume-list");
+
+    function loadResumes() {
+        const resumes = JSON.parse(localStorage.getItem('yamlResumes')) || {};
+        resumeListElement.innerHTML = "";
+
+        Object.keys(resumes).forEach((key) => {
+            const resume = resumes[key];
+            const listItem = document.createElement('li');
+            listItem.className = "list-group-item d-flex justify-content-between align-items-center";
+            listItem.innerHTML = `
+                ${resume.name} (${resume.title}) 
+                <div>
+                    <button class="btn btn-sm btn-info me-2" onclick="editResume('${key}')">Edit</button>
+                    <button class="btn btn-sm btn-warning me-2" onclick="setDefault('${key}')">${resume.isDefault ? "Default" : "Set as Default"}</button>
+                    <button class="btn btn-sm btn-danger" onclick="deleteResume('${key}')">Delete</button>
+                </div>
+            `;
+            resumeListElement.appendChild(listItem);
+        });
+    }
+
+    function saveYAML() {
+        const yamlData = yamlEditor.getValue();
+        const resumes = JSON.parse(localStorage.getItem('yamlResumes')) || {};
+
+        try {
+            const parsedData = jsyaml.load(yamlData);
+            const name = parsedData.name || "Unknown";
+            const title = parsedData.title || "Unknown";
+            const key = `${name}-${title}`;
+            
+            resumes[key] = {
+                name: name,
+                title: title,
+                yamlData: yamlData,
+                isDefault: resumes[key]?.isDefault || false,
+            };
+
+            localStorage.setItem('yamlResumes', JSON.stringify(resumes));
+            errorElement.style.display = "none";
+            loadResumes();
+            alert("Resume saved successfully!");
+        } catch (error) {
+            errorElement.style.display = "block";
+            errorElement.textContent = "YAML Syntax Error: " + error.message;
+        }
+    }
+
+    function viewSavedData() {
+        const resumes = JSON.parse(localStorage.getItem('yamlResumes')) || {};
+        if (Object.keys(resumes).length === 0) {
+            alert("No resumes found!");
+        } else {
+            console.log(resumes);
+            alert("Resume data logged in console!");
+        }
+    }
+
+    function addNewResume() {
+        yamlEditor.setValue(defaultYAML);
+    }
+
+    function editResume(key) {
+        const resumes = JSON.parse(localStorage.getItem('yamlResumes')) || {};
+        if (resumes[key]) {
+            yamlEditor.setValue(resumes[key].yamlData);
+        } else {
+            alert("Resume not found!");
+        }
+    }
+
+    function deleteResume(key) {
+        const resumes = JSON.parse(localStorage.getItem('yamlResumes')) || {};
+        if (resumes[key]) {
+            delete resumes[key];
+            localStorage.setItem('yamlResumes', JSON.stringify(resumes));
+            loadResumes();
+        } else {
+            alert("Resume not found!");
+        }
+    }
+
+    function setDefault(key) {
+        const resumes = JSON.parse(localStorage.getItem('yamlResumes')) || {};
+        Object.keys(resumes).forEach(k => resumes[k].isDefault = false);
+
+        if (resumes[key]) {
+            resumes[key].isDefault = true;
+            localStorage.setItem('yamlResumes', JSON.stringify(resumes));
+            loadResumes();
+        } else {
+            alert("Resume not found!");
+        }
+    }
+
+    function initialize() {
+        const resumes = JSON.parse(localStorage.getItem('yamlResumes')) || {};
+        const defaultKey = Object.keys(resumes).find(key => resumes[key].isDefault);
+
+        if (defaultKey) {
+            yamlEditor.setValue(resumes[defaultKey].yamlData);
+        } else {
+            yamlEditor.setValue(defaultYAML);
+        }
+
+        loadResumes();
+    }
+
+    initialize();
+</script>
+</body>
+</html>

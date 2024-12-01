@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Resume Editor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/emoji-css/1.0.0/emoji.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/dracula.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+        }
+        .yaml-data {
+            margin-top: 30px;
+            white-space: pre-wrap;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            margin-top: 30px;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 10px;
+            cursor: pointer;
+        }
+        .editable {
+            border: 1px solid #ddd;
+            padding: 5px;
+            border-radius: 4px;
+        }
+        #resume-select {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="editable" id="name" contenteditable="true">John Doe</h1>
+    <h4 class="editable" id="title" contenteditable="true">DevOps Engineer</h4>
+
+    <!-- Button to add new resume data -->
+    <button class="btn btn-primary mt-4" onclick="addNewResume()">Add New Resume Data</button>
+
+    <!-- Dropdown to select resume data -->
+    <div class="section-title">Select Resume Data</div>
+    <select id="resume-select" class="form-control" onchange="loadSelectedResume()">
+        <option value="">-- Select Resume --</option>
+    </select>
+
+    <!-- Button to make the selected resume as default -->
+    <button class="btn btn-success mt-4" onclick="setDefaultResume()">Set as Default</button>
+
+    <!-- YAML Editor for editing resume data -->
+    <div class="section-title editable" id="yaml-heading" contenteditable="true">Edit Resume Data (YAML Format)</div>
+    <textarea id="yaml-editor" class="form-control" rows="15"></textarea>
+
+    <button class="btn btn-primary mt-4" onclick="saveYAMLData()">Save YAML Data</button>
+    <button class="btn btn-secondary mt-4" onclick="viewYAMLData()">View YAML Data</button>
+
+    <div class="yaml-data" id="yaml-output" style="display: none;"></div>
+
+    <div id="yaml-error" class="alert alert-danger mt-3" style="display: none;">
+        <strong>Error!</strong> Invalid YAML syntax.
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-yaml@4.0.0/dist/js-yaml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/yaml/yaml.min.js"></script>
+
+<script>
+    const defaultYAML = `name: "John Doe"
+title: "DevOps Engineer"
+contact: "(123) 456-7890 | johndoe@email.com"
+experience:
+  - company: "ABC Corp"
+    job_title: "Senior DevOps Engineer"
+    years: "2020-2023"
+    responsibilities:
+      - "Implemented CI/CD pipelines with Jenkins, Docker, Kubernetes"
+      - "Collaborated with cross-functional teams for automation"
+skills:
+  - "Docker"
+  - "Kubernetes"
+  - "Terraform"
+  - "AWS"
+education:
+  - institution: "XYZ University"
+    degree: "Bachelor of Science in Computer Science"
+    years: "2016-2020"
+certifications:
+  - name: "AWS Certified Solutions Architect"
+    year: 2022
+  - name: "Docker Certified Associate"
+    year: 2021`;
+
+    // Initialize CodeMirror YAML editor
+    const yamlEditor = CodeMirror.fromTextArea(document.getElementById('yaml-editor'), {
+        lineNumbers: true,
+        mode: "yaml",
+        theme: "dracula",
+        lineWrapping: true,
+    });
+
+    // Load the default YAML if no data in localStorage
+    function loadDefaultYAML() {
+        yamlEditor.setValue(defaultYAML);
+    }
+
+    // Save YAML data to localStorage
+    function saveYAMLData() {
+        const yamlData = yamlEditor.getValue();
+        
+        // Validate YAML syntax
+        try {
+            const parsedData = jsyaml.load(yamlData);
+            const selectedResume = $('#resume-select').val();
+            localStorage.setItem(selectedResume, yamlData);
+            $('#yaml-error').hide(); // Hide error if YAML is valid
+            alert('YAML Data saved successfully!');
+        } catch (e) {
+            $('#yaml-error').show(); // Show error if YAML is invalid
+            console.error(e);
+        }
+    }
+
+    // View the YAML data saved in localStorage
+    function viewYAMLData() {
+        const savedYAML = localStorage.getItem($('#resume-select').val());
+        if (savedYAML) {
+            $('#yaml-output').text(savedYAML).show();
+            $('#yaml-error').hide(); // Hide error if data exists
+        } else {
+            $('#yaml-output').hide();
+            alert('No YAML data available.');
+        }
+    }
+
+    // Load selected resume from localStorage
+    function loadSelectedResume() {
+        const selectedResume = $('#resume-select').val();
+        if (selectedResume) {
+            const resumeData = localStorage.getItem(selectedResume);
+            if (resumeData) {
+                yamlEditor.setValue(resumeData);
+            }
+        }
+    }
+
+    // Add new resume
+    function addNewResume() {
+        const resumeName = prompt('Enter a name for the new resume:');
+        if (resumeName) {
+            const newResumeData = defaultYAML;
+            localStorage.setItem(resumeName, newResumeData);
+            alert('New resume created successfully!');
+            loadResumeSelect();
+        }
+    }
+
+    // Set the selected resume as default
+    function setDefaultResume() {
+        const selectedResume = $('#resume-select').val();
+        if (selectedResume) {
+            localStorage.setItem('defaultResume', selectedResume);
+            alert('Resume set as default!');
+        }
+    }
+
+    // Load resumes into select dropdown
+    function loadResumeSelect() {
+        const resumeSelect = $('#resume-select');
+        resumeSelect.empty();
+        resumeSelect.append('<option value="">-- Select Resume --</option>');
+        
+        for (let i = 0; i < localStorage.length; i++) {
+            const resumeName = localStorage.key(i);
+            if (resumeName !== 'defaultResume') {
+                resumeSelect.append(`<option value="${resumeName}">${resumeName}</option>`);
+            }
+        }
+
+        const defaultResume = localStorage.getItem('defaultResume');
+        if (defaultResume) {
+            $('#resume-select').val(defaultResume);
+            loadSelectedResume();
+        } else {
+            loadDefaultYAML();
+        }
+    }
+
+    // Initialize on page load
+    $(document).ready(function() {
+        loadResumeSelect();
+    });
+</script>
+
+</body>
+</html>
