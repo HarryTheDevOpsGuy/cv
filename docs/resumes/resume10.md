@@ -4,7 +4,7 @@ title: "My print page"
 permalink: /resume10.html
 ---
 
-<div class="container py-5">
+<div class="container printable-area py-5">
 <!-- Resume Header -->
 <header class="row mb-4">
     <div class="col-md-8">
@@ -90,6 +90,7 @@ permalink: /resume10.html
     </div>
 </div>
     
+<button onclick="window.print()" class="btn btn-success">Print Resume</button>
 
 
 
