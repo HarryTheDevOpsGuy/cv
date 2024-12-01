@@ -5,81 +5,29 @@ permalink: /cv.html
 ---
 
 <div class="container mt-5">
-    <h2>Welcome to My Resume Hub</h2>
-    <div id="resumeCarousel" class="carousel slide printable-area" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active printable-area">
-                <h4>John Doe</h4>
-                <p><strong>Title:</strong> Senior DevOps Engineer</p>
-                <p><strong>Location:</strong> New York, USA</p>
-                <p><strong>Contact:</strong> john.doe@example.com</p>
-                <h5>Experience</h5>
-                <ul>
-                    <li>Lead DevOps projects, automating infrastructure and CI/CD pipelines</li>
-                    <li>Collaborated with teams to optimize performance and reduce downtime</li>
-                </ul>
-                <h5>Skills</h5>
-                <ul>
-                    <li>AWS, Docker, Kubernetes, Jenkins, Terraform</li>
-                    <li>Continuous Integration and Delivery (CI/CD)</li>
-                </ul>
-                <h5>Education</h5>
-                <p>Master's in Computer Science, XYZ University</p> 
-                <a href="resume1.html" class="btn btn-primary">View Resume 1</a>
-                <button onclick="window.print()" class="btn btn-success">Print Resume</button>
-            </div>
-            <!-- Resume 2  -->
-            <div class="carousel-item printable-area">
-                <h4>John Doe</h4>
-                <p><strong>Title:</strong> Senior DevOps Engineer</p>
-                <p><strong>Location:</strong> New York, USA</p>
-                <p><strong>Contact:</strong> john.doe@example.com</p>
-                <h5>Experience</h5>
-                <ul>
-                    <li>Lead DevOps projects, automating infrastructure and CI/CD pipelines</li>
-                    <li>Collaborated with teams to optimize performance and reduce downtime</li>
-                </ul>
-                <h5>Skills</h5>
-                <ul>
-                    <li>AWS, Docker, Kubernetes, Jenkins, Terraform</li>
-                    <li>Continuous Integration and Delivery (CI/CD)</li>
-                </ul>
-                <h5>Education</h5>
-                <p>Master's in Computer Science, XYZ University</p>
-                <a href="resume2.html" class="btn btn-primary">View Resume 2</a>
-                <button onclick="window.print()" class="btn btn-success">Print Resume</button>
-            </div>
-            <div class="carousel-item">
-                <h4>Resume 3: Trending DevOps</h4>
-                <p>Editable and printable template</p>
-                <div id="resume3Div" class="printable-area" contenteditable="true">
-                    <h4>Michael Williams</h4>
-                    <p><strong>Title:</strong> Cloud DevOps Engineer</p>
-                    <p><strong>Location:</strong> Austin, TX</p>
-                    <p><strong>Contact:</strong> michael.williams@example.com</p>
-                    <h5>Summary</h5>
-                    <p>Innovative DevOps engineer specializing in cloud-native solutions and automation.</p>
-                    <h5>Technical Skills</h5>
-                    <ul>
-                        <li>Cloud Infrastructure (AWS, Azure)</li>
-                        <li>CI/CD, Kubernetes, Docker, Terraform</li>
-                    </ul>
-                    <h5>Work Experience</h5>
-                    <ul>
-                        <li>Built and managed scalable cloud infrastructure</li>
-                        <li>Automated deployments using Terraform and Ansible</li>
-                    </ul>
+    <h2 class="text-center mb-4">Explore DevOps Resumes 🧑‍💻</h2>
+        <div id="resumeCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="resume1.html">
+                        <img src="assets/images/resume1-preview.png" class="d-block w-100" alt="Resume 1">
+                    </a>
                 </div>
-                <a href="resume3.html" class="btn btn-primary">View Resume 3</a>
+                <div class="carousel-item">
+                    <a href="resume2.html">
+                        <img src="assets/images/resume2-preview.png" class="d-block w-100" alt="Resume 2">
+                    </a>
+                </div>
+                <!-- Add more carousel items for resumes -->
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#resumeCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#resumeCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#resumeCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#resumeCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
+    
 </div>
