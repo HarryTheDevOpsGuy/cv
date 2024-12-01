@@ -3,6 +3,7 @@ layout: base
 title: "My print page"
 permalink: /resume7.html
 ---
+
 <div class="container mt-5">
     <h2>Classic DevOps Resume</h2>
     <div class="printable-area border p-4" contenteditable="true">
