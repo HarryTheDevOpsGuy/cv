@@ -43,7 +43,18 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-yaml/dist/js-yaml.min.js"></script>
     <script>
+
+        function getResumes() {
+            return JSON.parse(localStorage.getItem('yamlResumes')) || {};
+        };
+
         $(document).ready(function() {
+
+            const resumes = getResumes();
+            const defaultKey = Object.keys(resumes).find(key => resumes[key].isDefault);
+            const defaultymldata = resumes[defaultKey].yamlData;
+            alert(defaultKey);
+            alert(defaultymldata);
             // Sample YAML data
             const yamlData = `
                 name: "Jane Smith"
