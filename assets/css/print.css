@@ -1,6 +1,7 @@
 @media print {
   body * {
       visibility: hidden; /* Hide everything */
+      width: 100%;
   }
   .printable-area, .printable-area * {
       visibility: visible; /* Show only the printable area */
@@ -13,10 +14,6 @@
       margin: auto;
   }
 
-  .container {
-    width: 100%;
-    margin: auto;
-   }
 }
 
   
