@@ -15,25 +15,26 @@
     <link rel="stylesheet" href="{{ '/assets/css/print.css' | relative_url }}">
 
     <script>
-      function adjustFontSize() {
-          const resume = document.getElementById('resume');
-          let fontSize = 16;
+        function adjustFontSize() {
+            const resume = document.getElementById('resume');
+            let fontSize = 100; // Start with 100%
 
-          // Increase the font size until the content fits the container
-          while (resume.scrollHeight > resume.clientHeight || resume.scrollWidth > resume.clientWidth) {
-              fontSize--;
-              resume.style.fontSize = `${fontSize}px`;
-          }
-      }
+            // Adjust the font size until the content fits the container
+            while (resume.scrollHeight > resume.clientHeight || resume.scrollWidth > resume.clientWidth) {
+                fontSize--;
+                resume.style.fontSize = `${fontSize}%`;
+                if (fontSize <= 50) break; // Prevent font size from becoming too small
+            }
+        }
 
-      window.addEventListener('DOMContentLoaded', (event) => {
-          adjustFontSize();
-      });
+        window.addEventListener('DOMContentLoaded', (event) => {
+            adjustFontSize();
+        });
 
-      window.addEventListener('resize', (event) => {
-          adjustFontSize();
-      });
-  </script>
+        window.addEventListener('resize', (event) => {
+            adjustFontSize();
+        });
+    </script>
     
   </head>
   
