@@ -32,7 +32,7 @@ $(document).ready(function() {
             alert('Failed to copy resume data: ' + err);
         });
     });
-
+    
     // Function to paste resume data from clipboard and load it
     $('#pasteResume').on('click', async function() {
         try {
