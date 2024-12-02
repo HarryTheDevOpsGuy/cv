@@ -103,4 +103,11 @@ permalink: /resume13.html
     <button class="btn btn-primary" onclick="window.print()">
         <i class="fas fa-print me-2"></i> Print Resume
     </button>
+    <button class="btn btn-primary" id="saveResume">
+        <i class="fas fa-save me-2"></i> Save
+    </button>
+    <button class="btn btn-danger me-2" id="clearResume"><i class="fas fa-trash-alt"></i> Reset/Clear</button>
+    <button class="btn btn-info me-2" id="copyResume"><i class="fas fa-copy"></i> Copy Data</button>
+    <button class="btn btn-warning me-2" id="pasteResume"><i class="fas fa-clipboard"></i> Paste Data</button>
+    <span id="successMessage" class="success-msg text-center">Successfull!</span>
 </div>
