@@ -4,7 +4,7 @@ title: "My print page"
 permalink: /resume14.html
 ---
 <div class="container mt-5">
-    <h2>Stylish DevOps Resume - v2</h2>
+    <h2 class="text-center">Stylish DevOps Resume - v2</h2>
     <div id="resume" resumeid="resumeid01" contenteditable="true" class="printable-area rounded border p-3">
         <h1 id="name">John Doe</h1>
         <h2 id="title">Software Developer</h2>
