@@ -5,7 +5,7 @@ permalink: /resume13.html
 ---
 <div class="container py-5">
     <h2>Stylish DevOps Resume</h2>
-    <div class="printable-area border p-4" contenteditable="true">
+    <div id="resume" resumeid="resumeid01" class="printable-area border p-4" contenteditable="true">
         <!-- Header Section -->
         <div class="row mb-4">
             <div class="col-md-3 text-center">
