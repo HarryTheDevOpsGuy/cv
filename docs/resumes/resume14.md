@@ -1,5 +1,5 @@
 ---
-layout: base
+layout: cv
 title: "My print page"
 permalink: /resume14.html
 ---
@@ -31,7 +31,7 @@ permalink: /resume14.html
 
 </div>
 
-<div class="mt-3 text-center">
+<!-- <div class="mt-3 text-center">
     <button class="btn btn-primary" onclick="window.print()"><i class="fas fa-print me-2"></i> Print Resume</button>
     <button class="btn btn-primary btn-icon" id="saveResume"><i class="fas fa-save"></i> Save</button>
     <button class="btn btn-danger btn-icon" id="clearResume"><i class="fas fa-trash-alt"></i> Reset/Clear</button>
@@ -40,5 +40,5 @@ permalink: /resume14.html
 </div>
 <div class="mt-3 text-center"> 
     <span id="successMessage" class="success-msg">ready!</span> 
-</div>
+</div> -->
 
