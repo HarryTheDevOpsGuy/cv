@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editable Resume</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        .editable {
+            border-bottom: 1px dashed #ccc;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div resumeid="resumeid01" id="resumeContainer" contenteditable="true">
+            <h1 id="name" class="editable">John Doe</h1>
+            <h2 id="title" class="editable">Software Developer</h2>
+            <p><i class="fas fa-envelope"></i> <span id="email" class="editable">john.doe@example.com</span></p>
+            <p><i class="fas fa-phone"></i> <span id="phone" class="editable">(123) 456-7890</span></p>
+            <h3>Experience</h3>
+            <div id="experience">
+                <div class="experience-item editable">
+                    <h4>Senior Developer at Tech Company</h4>
+                    <p>January 2018 - Present</p>
+                    <p>Leading a team of developers to build scalable web applications.</p>
+                </div>
+                <div class="experience-item editable">
+                    <h4>Junior Developer at Another Tech Company</h4>
+                    <p>June 2015 - December 2017</p>
+                    <p>Worked on multiple projects involving front-end and back-end technologies.</p>
+                </div>
+            </div>
+            <h3>Education</h3>
+            <div id="education">
+                <div class="education-item editable">
+                    <h4>BS in Computer Science</h4>
+                    <p>University of Somewhere, 2011 - 2015</p>
+                    <p>Graduated with honors.</p>
+                </div>
+            </div>
+        </div>
+        <div class="mt-3">
+            <button class="btn btn-primary" id="saveResume">Save</button>
+            <button class="btn btn-danger" id="deleteResume">Delete</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            const resumeId = $('#resumeContainer').attr('resumeid');
+
+            // Function to save resume data to local storage
+            $('#saveResume').on('click', function() {
+                const resumeData = {
+                    resumeid: resumeId,
+                    name: $('#name').text(),
+                    title: $('#title').text(),
+                    email: $('#email').text(),
+                    phone: $('#phone').text(),
+                    experience: $('#experience').html(),
+                    education: $('#education').html()
+                };
+                localStorage.setItem(resumeId, JSON.stringify(resumeData));
+                alert('Resume saved!');
+            });
+
+            // Function to delete resume data from local storage
+            $('#deleteResume').on('click', function() {
+                localStorage.removeItem(resumeId);
+                alert('Resume deleted!');
+                location.reload(); // Reload the page to clear the content
+            });
+
+            // Load resume data from local storage
+            function loadResume() {
+                const storedData = localStorage.getItem(resumeId);
+                if (storedData) {
+                    const resumeData = JSON.parse(storedData);
+                    $('#resumeContainer').attr('resumeid', resumeData.resumeid);
+                    $('#name').text(resumeData.name);
+                    $('#title').text(resumeData.title);
+                    $('#email').text(resumeData.email);
+                    $('#phone').text(resumeData.phone);
+                    $('#experience').html(resumeData.experience);
+                    $('#education').html(resumeData.education);
+                }
+            }
+
+            loadResume();
+        });
+    </script>
+</body>
+</html>
