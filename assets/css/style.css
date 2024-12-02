@@ -18,3 +18,26 @@
   .section {
     padding: 40px 0;
   }
+
+  .a4-container {
+      width: 793.7px; /* Approx. A4 width in pixels */
+      height: 1122.52px; /* Approx. A4 height in pixels */
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #000; /* Optional: Add border for visualization */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+      background-color: #fff;
+  }
+
+  /* Reduce font size by 70% */
+  .a4-container * {
+      font-size: 70%;
+  }
+
+  /* Make it responsive */
+  @media screen and (max-width: 793.7px) {
+      .a4-container {
+          width: 100%;
+          height: auto;
+      }
+  }
