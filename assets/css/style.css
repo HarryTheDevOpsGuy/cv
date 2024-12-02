@@ -19,4 +19,4 @@
     padding: 40px 0;
   }
 
-  #resume { width: 21cm; height: 29.7cm; padding: 20px; border: 1px solid #333; overflow: hidden; font-size: 100%; }
+  #resume { margin: auto; width: 21cm; height: auto; padding: 10px; border: 1px solid #333; overflow: hidden; font-size: 100%;  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
