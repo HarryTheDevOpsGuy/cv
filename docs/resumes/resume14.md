@@ -36,6 +36,7 @@ permalink: /resume14.html
             </div>
         </div>
         <div class="mt-3 text-center">
+            <button class="btn btn-primary" onclick="window.print()"><i class="fas fa-print me-2"></i> Print Resume</button>
             <button class="btn btn-primary btn-icon" id="saveResume"><i class="fas fa-save"></i> Save</button>
             <button class="btn btn-danger btn-icon" id="clearResume"><i class="fas fa-trash-alt"></i> Reset/Clear</button>
             <button class="btn btn-info btn-icon" id="copyResume"><i class="fas fa-copy"></i> Copy Data</button>
