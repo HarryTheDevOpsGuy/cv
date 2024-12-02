@@ -59,5 +59,6 @@ $(document).ready(function() {
     const storedData = localStorage.getItem(resumeid);
     if (storedData) {
         $('#resume').html(storedData);
+        adjustFontSize();
     }
 });

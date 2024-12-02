@@ -13,6 +13,27 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/print.css' | relative_url }}">
+
+    <script>
+      function adjustFontSize() {
+          const resume = document.getElementById('resume');
+          let fontSize = 16;
+
+          // Increase the font size until the content fits the container
+          while (resume.scrollHeight > resume.clientHeight || resume.scrollWidth > resume.clientWidth) {
+              fontSize--;
+              resume.style.fontSize = `${fontSize}px`;
+          }
+      }
+
+      window.addEventListener('DOMContentLoaded', (event) => {
+          adjustFontSize();
+      });
+
+      window.addEventListener('resize', (event) => {
+          adjustFontSize();
+      });
+  </script>
     
   </head>
   
