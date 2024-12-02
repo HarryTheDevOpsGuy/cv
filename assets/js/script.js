@@ -46,6 +46,15 @@ $(document).ready(function() {
         }
     });
 
+    // Function to send resume data to WhatsApp
+    $('#sendWhatsApp').on('click', function() {
+        const resumeData = $('#resume').html();
+        const base64Data = btoa(unescape(encodeURIComponent(resumeData)));
+        const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(base64Data)}`;
+        window.open(whatsappUrl, '_blank');
+    });
+
+
     // Automatically load resume data if available
     const storedData = localStorage.getItem(resumeid);
     if (storedData) {
