@@ -31,7 +31,7 @@
 
   /* Reduce font size by 70% */
   .a4-container * {
-      font-size: 70%;
+      font-size: 100%;
   }
 
   /* Make it responsive */
