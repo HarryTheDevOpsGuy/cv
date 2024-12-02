@@ -1,10 +1,9 @@
 ---
 layout: base
 title: "My print page"
-permalink: /resume13.html
+permalink: /resume14.html
 ---
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
