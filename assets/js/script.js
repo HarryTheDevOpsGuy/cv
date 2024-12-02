@@ -59,6 +59,13 @@ $(document).ready(function() {
     const storedData = localStorage.getItem(resumeid);
     if (storedData) {
         $('#resume').html(storedData);
-        adjustFontSize();
+        const fontSizeInput = document.getElementById('fontSizeControl');
+        adjustFontSize(fontSizeInput.value);
     }
+
+    // Update the displayed font size value
+    $('#fontSizeControl').on('input', function() {
+        $('#fontSizeValue').text(`${this.value}%`);
+    });
+
 });
