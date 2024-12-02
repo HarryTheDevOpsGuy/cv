@@ -3,23 +3,12 @@ layout: base
 title: "My print page"
 permalink: /resume14.html
 ---
-
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editable Resume</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <style>
-        .btn-icon { margin-right: 10px; }
-        .container { background-color: #f9f9f9; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
-        .resume-section { margin-bottom: 20px; }
-        .resume-section h3 { border-bottom: 2px solid #333; padding-bottom: 5px; }
-        #resume h1, #resume h2 { margin-bottom: 10px; }
-        #resume p { margin-bottom: 5px; }
-        .success-msg { color: green; display: none; }
-    </style>
 </head>
 <body>
     <div class="container mt-5">
@@ -58,5 +47,4 @@ permalink: /resume14.html
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="/cv/assets/js/script.js"></script>
-</body>
-</html>
+
