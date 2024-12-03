@@ -116,7 +116,7 @@ $(document).ready(function() {
                 let resumeTitle = $(resumeData.info).find('h4').text();
                 $('#savedResumes').append(`
                     <div class="list-group-item d-flex justify-content-between align-items-center">
-                        <span>${resumeTitle}</span>
+                        <span>resume_${resumeId}-${resumeTitle}</span>
                         <div>
                             <button class="btn btn-primary view-resume" data-resumeid="${resumeId}"><i class="fas fa-eye"></i> View</button>
                             <button class="btn btn-secondary edit-resume" data-resumeid="${resumeId}"><i class="fas fa-edit"></i> Edit</button>
