@@ -113,7 +113,7 @@ $(document).ready(function() {
             if (key.startsWith('resume_')) {
                 let resumeId = key.split('_')[1];
                 let resumeData = JSON.parse(localStorage.getItem(key));
-                let resumeTitle = $(resumeData.info).find('h4').text();
+                let resumeTitle = $(resumeData.body).find('#name').text();
                 $('#savedResumes').append(`
                     <div class="list-group-item d-flex justify-content-between align-items-center">
                         <span>resume_${resumeId}-${resumeTitle}</span>
