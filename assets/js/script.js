@@ -15,6 +15,7 @@ $(document).ready(function() {
         const resumeBody = $(this).closest('.carousel-item').find('.resume-body').html();
         const resumeJson = { id: "tmpl1" , name: 'newtmpl', content: resumeBody };
         localStorage.setItem('savedResumes', JSON.stringify(resumeJson));
+        alert(JSON.stringify(resumeJson))
         window.location.href = 'edit.html';
     });
     
