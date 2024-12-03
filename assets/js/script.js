@@ -70,10 +70,11 @@ $(document).ready(function() {
 
     // Select resume and edit in new page.
     $('.select-btn').click(function() {
-        let resumeData = $(this).closest('.resume-container').html();
+        // let resumeData = $(this).closest('.resume-container').html();
+        let resumeData = $(this).closest('.carousel-item').html();
         localStorage.removeItem(resumeid);
         localStorage.setItem(resumeid, resumeData);
-        window.location.href = 'edit.html';
+        window.location.href = 'edit.html'; 
     });
 
 });
