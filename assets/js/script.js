@@ -71,6 +71,7 @@ $(document).ready(function() {
     // Select resume and edit in new page.
     $('.select-btn').click(function() {
         let resumeData = $(this).closest('.resume-container').html();
+        localStorage.removeItem(resumeid);
         localStorage.setItem(resumeid, resumeData);
         window.location.href = 'edit.html';
     });
