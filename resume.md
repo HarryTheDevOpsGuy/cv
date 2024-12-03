@@ -1,4 +1,4 @@
 ---
-layout: myresume
+layout: home
 title: "Resume"
 ---
