@@ -69,11 +69,23 @@ $(document).ready(function() {
     });
 
     // Select resume and edit in new page.
+    // $('.select-btn').click(function() {
+    //     // let resumeData = $(this).closest('.resume-container').html();
+    //     let resumeData = $(this).closest('.carousel-item').html();
+    //     // localStorage.removeItem(resumeid);
+    //     localStorage.setItem(resumeid, resumeData);
+    //     window.location.href = 'edit.html'; 
+    // });
+
+    // Select resume and edit in new page.
     $('.select-btn').click(function() {
-        // let resumeData = $(this).closest('.resume-container').html();
-        let resumeData = $(this).closest('.carousel-item').html();
-        localStorage.removeItem(resumeid);
-        localStorage.setItem(resumeid, resumeData);
+        let resumeId = $(this).closest('.carousel-item').attr('resumeid');
+        const resumeData = {
+            id: resumeId,
+            body: $(this).closest('.carousel-item').find('.resume-body').html(),
+            info: $(this).closest('.carousel-item').find('.resume-info').html(),
+        };
+        localStorage.setItem(resumeId, JSON.stringify(resumeData));
         window.location.href = 'edit.html'; 
     });
 

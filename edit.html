@@ -4,6 +4,23 @@ title: "cv"
 ---
 
 <div class="container mt-5"></div>
+    <h1>Resume Editor</h1>
+    <div class="mt-4">
+        <h4>Resumes List:</h4>
+        <ul id="resume-list" class="list-group"></ul>
+    </div>
+    <div class="mb-3">
+        <button class="btn btn-primary" onclick="saveYAML()" title="Save Resume">
+            <i class="fas fa-save"></i>
+        </button>
+        <button class="btn btn-secondary" onclick="viewAllResumes()" title="View All Resumes">
+            <i class="fas fa-eye"></i>
+        </button>
+        <button class="btn btn-success" onclick="addNewResume()" title="Add New Resume">
+            <i class="fas fa-plus"></i>
+        </button>
+    </div>
+
     <div id="resume" contenteditable="true" resumeid="selected01" class="printable-area rounded border p-3">
         <!-- This will update automatically -->
         <h3 class="text-primary">Jane Smith</h3>
