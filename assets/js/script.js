@@ -58,6 +58,7 @@ $(document).ready(function() {
     const storedData = localStorage.getItem(resumeid);
     if (storedData) {
         $('#resume').html(storedData);
+        $('#resume').find('.select-btn').remove();
         const fontSizeInput = document.getElementById('fontSizeControl');
         adjustFontSize(fontSizeInput.value);
     }
