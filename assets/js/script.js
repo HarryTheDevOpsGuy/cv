@@ -65,4 +65,12 @@ $(document).ready(function() {
     $('#fontSizeControl').on('input', function() {
         $('#fontSizeValue').text(`${this.value}%`);
     });
+
+    // Select resume and edit in new page.
+    $('.select-btn').click(function() {
+        let resumeData = $(this).closest('.resume-container').html();
+        localStorage.setItem('selectedResume', resumeData);
+        window.location.href = 'edit.html';
+    });
+
 });
