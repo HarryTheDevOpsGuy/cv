@@ -55,13 +55,27 @@ $(document).ready(function() {
     });
 
     // Automatically load resume data if available
-    const storedData = localStorage.getItem(resumeid);
-    if (storedData) {
-        $('#resume').html(storedData);
-        $('#resume').find('.select-btn').remove();
-        const fontSizeInput = document.getElementById('fontSizeControl');
-        adjustFontSize(fontSizeInput.value);
+    // const storedData = localStorage.getItem(resumeid);
+    // if (storedData) {
+    //     $('#resume').html(storedData);
+    //     $('#resume').find('.select-btn').remove();
+    //     const fontSizeInput = document.getElementById('fontSizeControl');
+    //     adjustFontSize(fontSizeInput.value);
+    // }
+
+    // Automatically load resume data if available
+    let selectedResumeId = localStorage.getItem('selectedResumeId');
+    if (selectedResumeId) {
+        let savedResume = JSON.parse(localStorage.getItem('resume_' + selectedResumeId));
+        if (savedResume) {
+            $('.resume-info').html(savedResume.info);
+            $('#resume').html(savedResume.body);
+            $('#resume').find('.select-btn').remove(); // Remove the select button from resume body
+            const fontSizeInput = document.getElementById('fontSizeControl');
+            adjustFontSize(fontSizeInput.value);
+        }
     }
+
 
     // Update the displayed font size value
     $('#fontSizeControl').on('input', function() {
