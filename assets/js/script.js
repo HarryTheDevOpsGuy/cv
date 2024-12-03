@@ -79,14 +79,17 @@ $(document).ready(function() {
 
     // Select resume and edit in new page.
     $('.select-btn').click(function() {
-        let resumeId = $(this).closest('.carousel-item').attr('resumeid');
-        const resumeData = {
-            id: resumeId,
-            body: $(this).closest('.carousel-item').find('.resume-body').html(),
-            info: $(this).closest('.carousel-item').find('.resume-info').html(),
+        let $carouselItem = $(this).closest('.carousel-item');
+        let resumeId = $carouselItem.data('resumeid');
+        let resumeInfo = $carouselItem.find('.resume-info').html();
+        let resumeBody = $carouselItem.find('.resume-body').html();
+        let resumeData = {
+            info: resumeInfo,
+            body: resumeBody
         };
-        localStorage.setItem(resumeId, JSON.stringify(resumeData));
-        window.location.href = 'edit.html'; 
+        localStorage.setItem('resume_' + resumeId, JSON.stringify(resumeData));
+        localStorage.setItem('selectedResumeId', resumeId);
+        window.location.href = 'edit.html';
     });
 
 });
