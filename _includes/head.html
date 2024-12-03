@@ -16,29 +16,31 @@
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/print.css' | relative_url }}">
 
-    function adjustFontSize(fontSize) {
-        const resume = document.getElementById('resume');
-        resume.style.fontSize = `${fontSize}%`;
-        
-        // Adjust heading font sizes based on the current font size
-        const headings = resume.querySelectorAll('h1, h2, h3, h4, h5, h6');
-        headings.forEach(heading => {
-            heading.style.fontSize = `calc(${fontSize}% + 1em)`;
-        });
-    }
+    <script>
+        function adjustFontSize(fontSize) {
+            const resume = document.getElementById('resume');
+            resume.style.fontSize = `${fontSize}%`;
+            
+            // Adjust heading font sizes based on the current font size
+            const headings = resume.querySelectorAll('h1, h2, h3, h4, h5, h6');
+            headings.forEach(heading => {
+                heading.style.fontSize = `calc(${fontSize}% + 1em)`;
+            });
+        }
 
-    window.addEventListener('DOMContentLoaded', (event) => {
-        const fontSizeInput = document.getElementById('fontSizeControl');
-        fontSizeInput.addEventListener('input', (event) => {
-            adjustFontSize(event.target.value);
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const fontSizeInput = document.getElementById('fontSizeControl');
+            fontSizeInput.addEventListener('input', (event) => {
+                adjustFontSize(event.target.value);
+            });
+            adjustFontSize(fontSizeInput.value);
         });
-        adjustFontSize(fontSizeInput.value);
-    });
 
-    window.addEventListener('resize', (event) => {
-        const fontSizeInput = document.getElementById('fontSizeControl');
-        adjustFontSize(fontSizeInput.value);
-    });
+        window.addEventListener('resize', (event) => {
+            const fontSizeInput = document.getElementById('fontSizeControl');
+            adjustFontSize(fontSizeInput.value);
+        });
+    </script>
     
   </head>
   
