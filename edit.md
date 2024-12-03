@@ -4,7 +4,27 @@ title: "cv"
 ---
 
 <div class="container mt-5"></div>
-    {{ content }}
+    <div id="resume" contenteditable="true" resumeid="selected01" class="printable-area rounded border p-3">
+        <!-- This will update automatically -->
+        <h3 class="text-primary">Jane Smith</h3>
+        <p>DevOps Engineer | System Administrator</p>
+        <div class="row">
+            <div class="col-sm-6">
+                <h5>Technical Skills</h5>
+                <ul>
+                    <li>AWS, GCP, Azure</li>
+                    <li>CI/CD Pipeline Setup</li>
+                    <li>Linux Administration</li>
+                </ul>
+            </div>
+            <div class="col-sm-6">
+                <h5>Work Experience</h5>
+                <p><strong>Senior DevOps Engineer</strong> at DEF Ltd (2020 - Present)</p>
+                <p><strong>Cloud Engineer</strong> at GHI Tech (2017 - 2020)</p>
+            </div>
+        </div>
+        <!-- end -->
+    </div>
     <div class="mt-3 text-center">
         <label for="fontSizeControl" class="form-label">Font Size: <span id="fontSizeValue">100%</span></label>
         <input type="range" class="form-range font-size-control" id="fontSizeControl" min="50" max="200" value="100">

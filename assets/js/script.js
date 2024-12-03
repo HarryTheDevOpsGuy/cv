@@ -1,7 +1,8 @@
 // document.getElementById("header").innerHTML = document.querySelector("header").innerHTML;
 // document.getElementById("footer").innerHTML = document.querySelector("footer").innerHTML;
 $(document).ready(function() {
-    const resumeid = $('#resume').attr('resumeid');
+    // const resumeid = $('#resume').attr('resumeid');
+    const resumeid = 'selectedResume';
     const initialData = $('#resume').html();
 
     // Function to save resume data to local storage
