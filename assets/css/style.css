@@ -28,6 +28,7 @@
 
   .resume-section { margin-bottom: 20px; }
   .resume-section h3 { border-bottom: 2px solid #333; padding-bottom: 5px; }
+  resume-body: { margin: auto; max-width: 21cm; max-height: 29.7cm; padding: 10px; border: 1px solid #333; overflow: hidden; font-size: 100%;  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
   #resume { margin: auto; max-width: 21cm; max-height: 29.7cm; padding: 10px; border: 1px solid #333; overflow: hidden; font-size: 100%;  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
   #resume h1, #resume h2 { margin-bottom: 10px; }
   #resume p { margin-bottom: 5px; }
