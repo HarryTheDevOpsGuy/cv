@@ -5,8 +5,8 @@
     <meta name="description" content="{{ page.description | default: site.description }}">
     
     <!-- Bootstrap 5 CSS -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
@@ -16,25 +16,29 @@
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/print.css' | relative_url }}">
 
-    <script>
-        function adjustFontSize(fontSize) {
-            const resume = document.getElementById('resume');
-            resume.style.fontSize = `${fontSize}%`;
-        }
-
-        window.addEventListener('DOMContentLoaded', (event) => {
-            const fontSizeInput = document.getElementById('fontSizeControl');
-            fontSizeInput.addEventListener('input', (event) => {
-                adjustFontSize(event.target.value);
-            });
-            adjustFontSize(fontSizeInput.value);
+    function adjustFontSize(fontSize) {
+        const resume = document.getElementById('resume');
+        resume.style.fontSize = `${fontSize}%`;
+        
+        // Adjust heading font sizes based on the current font size
+        const headings = resume.querySelectorAll('h1, h2, h3, h4, h5, h6');
+        headings.forEach(heading => {
+            heading.style.fontSize = `calc(${fontSize}% + 1em)`;
         });
+    }
 
-        window.addEventListener('resize', (event) => {
-            const fontSizeInput = document.getElementById('fontSizeControl');
-            adjustFontSize(fontSizeInput.value);
+    window.addEventListener('DOMContentLoaded', (event) => {
+        const fontSizeInput = document.getElementById('fontSizeControl');
+        fontSizeInput.addEventListener('input', (event) => {
+            adjustFontSize(event.target.value);
         });
-    </script>
+        adjustFontSize(fontSizeInput.value);
+    });
+
+    window.addEventListener('resize', (event) => {
+        const fontSizeInput = document.getElementById('fontSizeControl');
+        adjustFontSize(fontSizeInput.value);
+    });
     
   </head>
   
