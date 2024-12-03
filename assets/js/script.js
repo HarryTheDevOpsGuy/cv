@@ -133,123 +133,14 @@ $(document).ready(function() {
     });
     
 
+    // Select resume template and edit.
+    $('.select-btn').on('click', function() {
+        const resumeBody = $(this).closest('.carousel-item').find('.resume-body').html();
 
-    // function saveResume() {
-    //     const resumeContent = document.getElementById('resume').innerHTML;
-    //     const resumeName = document.getElementById('name').textContent.trim() || `Untitled Resume`;
-    //     const resumes = JSON.parse(localStorage.getItem('myresume')) || [];
-    //     const resumeId = document.getElementById('resume').getAttribute('resumeid');
-    //     const resumeIndex = resumes.findIndex(resume => resume.id === resumeId);
-    
-    //     if (resumeIndex > -1) {
-    //         resumes[resumeIndex].content = resumeContent;
-    //         resumes[resumeIndex].name = resumeName;
-    //     } else {
-    //         resumes.push({ id: resumeId || `resume${resumes.length + 1}`, name: resumeName, content: resumeContent });
-    //     }
-    
-    //     localStorage.setItem('myresume', JSON.stringify(resumes));
-    //     displaySavedResumes();
-    //     // alert('Resume saved successfully!');
-    // }
-
-
-    //   // Select resume and edit in new page.
-    //   $('.select-btn').click(function() {
-    //     let $carouselItem = $(this).closest('.carousel-item');
-    //     let resumeId = $carouselItem.data('resumeid');
-    //     let resumeInfo = $carouselItem.find('.resume-info').html();
-    //     let resumeBody = $carouselItem.find('.resume-body').html();
-    //     let resumeData = {
-    //         id: resumeId,
-    //         name: 
-    //         body: resumeBody
-    //     };
-    //     localStorage.setItem('resume_' + resumeId, JSON.stringify(resumeData));
-    //     localStorage.setItem('selectedResumeId', resumeId);
-    //     window.location.href = 'edit.html';
-    // });
-
-
-    // // Select resume and edit in new page.
-    // $('.select-btn').click(function() {
-    //     let $carouselItem = $(this).closest('.carousel-item');
-    //     let resumeId = $carouselItem.data('resumeid');
-    //     let resumeInfo = $carouselItem.find('.resume-info').html();
-    //     let resumeBody = $carouselItem.find('.resume-body').html();
-    //     let resumeData = {
-    //         info: resumeInfo,
-    //         body: resumeBody
-    //     };
-    //     localStorage.setItem('resume_' + resumeId, JSON.stringify(resumeData));
-    //     localStorage.setItem('selectedResumeId', resumeId);
-    //     window.location.href = 'edit.html';
-    // });
-
-
-    document.querySelectorAll('.select-btn').forEach(button => {
-        button.addEventListener('click', function() {
-            // Find the closest carousel-item
-            const carouselItem = this.closest('.carousel-item');
-            
-            // Get the resume-body from the active carousel-item
-            const resumeBody = carouselItem.querySelector('.resume-body');
-            
-            // Get the inner HTML of the selected resume-body element
-            const resumeHtml = resumeBody.innerHTML;
-            
-            // Save the HTML to localStorage or another method to pass data to the edit.html page
-            const resumeJson = { id: resumeId || `tmpl${resumes.length + 1}`, name: 'newtmpl', content: resumeHtml }
-            localStorage.setItem('selectedResumeHtml', resumeJson);
-            
-            // Redirect to the edit.html page
-            window.location.href = 'edit.html';
-        });
+        const resumeJson = { id: resumeId || `tmpl${resumes.length + 1}`, name: 'newtmpl', content: resumeBody }
+        localStorage.setItem('myresume', resumeJson);
+        window.location.href = 'edit.html';
     });
-
-
-
-    function loadSavedResumes() {
-        $('#savedResumes').empty();
-        for (let i = 0; i < localStorage.length; i++) {
-            let key = localStorage.key(i);
-            if (key.startsWith('resume_')) {
-                let resumeId = key.split('_')[1];
-                let resumeData = JSON.parse(localStorage.getItem(key));
-                let resumeTitle = $('#name').text();
-                $('#savedResumes').append(`
-                    <div class="list-group-item d-flex justify-content-between align-items-center">
-                        <span>resume_${resumeId} ${resumeTitle}</span>
-                        <div>
-                            <button class="btn btn-primary view-resume" data-resumeid="${resumeId}"><i class="fas fa-eye"></i> View</button>
-                            <button class="btn btn-secondary edit-resume" data-resumeid="${resumeId}"><i class="fas fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger delete-resume" data-resumeid="${resumeId}"><i class="fas fa-trash"></i> Delete</button>
-                        </div>
-                    </div>
-                `);
-            }
-        }
-
-        $('.view-resume').click(function() {
-            let resumeId = $(this).data('resumeid');
-            let resumeData = JSON.parse(localStorage.getItem('resume_' + resumeId));
-            alert('Resume Info:\n' + resumeData.info + '\n\nResume Body:\n' + resumeData.body);
-        });
-
-        $('.edit-resume').click(function() {
-            let resumeId = $(this).data('resumeid');
-            localStorage.setItem('selectedResumeId', resumeId);
-            window.location.href = 'edit.html';
-        });
-
-        $('.delete-resume').click(function() {
-            let resumeId = $(this).data('resumeid');
-            localStorage.removeItem('resume_' + resumeId);
-            loadSavedResumes();
-        });
-    }
-
-    loadSavedResumes();
     
 
 });
