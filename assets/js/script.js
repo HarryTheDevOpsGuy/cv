@@ -136,8 +136,7 @@ $(document).ready(function() {
     // Select resume template and edit.
     $('.select-btn').on('click', function() {
         const resumeBody = $(this).closest('.carousel-item').find('.resume-body').html();
-
-        const resumeJson = { id: resumeId || `tmpl${resumes.length + 1}`, name: 'newtmpl', content: resumeBody }
+        const resumeJson = { id: "tmpl1" , name: 'newtmpl', content: resumeBody }
         localStorage.setItem('myresume', resumeJson);
         window.location.href = 'edit.html';
     });
