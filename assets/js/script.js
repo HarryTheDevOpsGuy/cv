@@ -13,8 +13,8 @@ $(document).ready(function() {
     // Select resume template and edit.
     $('.select-btn').on('click', function() {
         const resumeBody = $(this).closest('.carousel-item').find('.resume-body').html();
-        const resumeJson = { id: "tmpl1" , name: 'newtmpl', content: resumeBody }
-        localStorage.setItem('savedResumes', resumeJson);
+        const resumeJson = { id: "tmpl1" , name: 'newtmpl', content: resumeBody };
+        localStorage.setItem('savedResumes', JSON.stringify(resumeJson));
         window.location.href = 'edit.html';
     });
     
