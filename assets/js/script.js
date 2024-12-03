@@ -1,145 +1,121 @@
 // document.getElementById("header").innerHTML = document.querySelector("header").innerHTML;
 // document.getElementById("footer").innerHTML = document.querySelector("footer").innerHTML;
+
 $(document).ready(function() {
-    
-    function adjustFontSize(fontSize) {
-        const resume = document.getElementById('resume');
-        resume.style.fontSize = `${fontSize}%`;
-        
-        const headings = resume.querySelectorAll('h1, h2, h3, h4, h5, h6');
-        headings.forEach(heading => {
-            heading.style.fontSize = `calc(${fontSize}% + 1em)`;
-        });
-    }
-    
-    function saveResume() {
-        const resumeContent = document.getElementById('resume').innerHTML;
-        const resumeName = document.getElementById('name').textContent.trim() || `Untitled Resume`;
-        const resumes = JSON.parse(localStorage.getItem('myresume')) || [];
-        const resumeId = document.getElementById('resume').getAttribute('resumeid');
-        const resumeIndex = resumes.findIndex(resume => resume.id === resumeId);
-    
-        if (resumeIndex > -1) {
-            resumes[resumeIndex].content = resumeContent;
-            resumes[resumeIndex].name = resumeName;
-        } else {
-            resumes.push({ id: resumeId || `resume${resumes.length + 1}`, name: resumeName, content: resumeContent });
-        }
-    
-        localStorage.setItem('myresume', JSON.stringify(resumes));
-        displaySavedResumes();
-        // alert('Resume saved successfully!');
-    }
-    
-    function loadResume(resumeId) {
-        const resumes = JSON.parse(localStorage.getItem('myresume')) || [];
-        const resume = resumes.find(resume => resume.id === resumeId);
-        if (resume) {
-            document.getElementById('resume').innerHTML = resume.content;
-            document.getElementById('resume').setAttribute('resumeid', resume.id);
-        }
-    }
-    
-    function clearResume() {
-        if (confirm('Are you sure you want to clear the resume?')) {
-            document.getElementById('resume').innerHTML = '';
-            document.getElementById('resume').removeAttribute('resumeid');
-        }
-    }
-    
-    function deleteResume(resumeId) {
-        if (confirm('Are you sure you want to delete this resume?')) {
-            const resumes = JSON.parse(localStorage.getItem('myresume')) || [];
-            const updatedResumes = resumes.filter(resume => resume.id !== resumeId);
-            localStorage.setItem('myresume', JSON.stringify(updatedResumes));
-            displaySavedResumes();
-            clearResume();
-        }
-    }
-    
-    function makeDefaultResume(resumeId) {
-        const resumes = JSON.parse(localStorage.getItem('myresume')) || [];
-        resumes.forEach(resume => resume.isDefault = (resume.id === resumeId));
-        localStorage.setItem('myresume', JSON.stringify(resumes));
-        displaySavedResumes();
-        // alert('Default resume set successfully!');
-    }
-    
-    function copyResumeBase64() {
-        const resumeContent = document.getElementById('resume').innerHTML;
-        const base64Content = btoa(resumeContent);
-        navigator.clipboard.writeText(base64Content).then(() => {
-            document.getElementById('successMessage').style.display = 'block';
-            setTimeout(() => {
-                document.getElementById('successMessage').style.display = 'none';
-            }, 2000);
-        });
-    }
-    
-    function pasteResumeBase64() {
-        navigator.clipboard.readText().then(text => {
-          const decodedContent = atob(text);
-          document.getElementById('resume').innerHTML = decodedContent;
-          saveResume();
-        }).catch(err => {
-            alert('Failed to read clipboard contents: ', err);
-        });
-    }
-    
-    function sendWhatsApp() {
-        const resumeContent = document.getElementById('resume').innerText;
-        const whatsappURL = `https://api.whatsapp.com/send?text=${encodeURIComponent(resumeContent)}`;
-        window.open(whatsappURL, '_blank');
-    }
-    
-    function displaySavedResumes() {
-        const resumes = JSON.parse(localStorage.getItem('myresume')) || [];
-        const savedResumesList = document.getElementById('savedResumes');
-        savedResumesList.innerHTML = resumes.map(resume => 
-            `<div class="list-group-item resume-item">
-                <span onclick="loadResume('${resume.id}')">${resume.name} (${resume.id})</span>
-                <div class="resume-actions">
-                    <button class="btn btn-info btn-sm" onclick="event.stopPropagation(); loadResume('${resume.id}')"><i class="fas fa-eye"></i></button>
-                    <button class="btn btn-primary btn-sm" onclick="event.stopPropagation(); loadResume('${resume.id}')"><i class="fas fa-edit"></i></button>
-                    <button class="btn btn-success btn-sm" onclick="event.stopPropagation(); makeDefaultResume('${resume.id}')"><i class="fas fa-check"></i></button>
-                    <button class="btn btn-danger btn-sm" onclick="event.stopPropagation(); deleteResume('${resume.id}')"><i class="fas fa-trash-alt"></i></button>
-                </div>
-            </div>`
-        ).join('');
-    }
-    
-    function createNewResume() {
-        document.getElementById('resume').innerHTML = '<h3 id="name" class="text-primary">New Resume</h3><p>Enter your details here...</p>';
-        document.getElementById('resume').removeAttribute('resumeid');
-    }
-    
-    window.addEventListener('DOMContentLoaded', (event) => {
-        displaySavedResumes();
-    
-        const fontSizeInput = document.getElementById('fontSizeControl');
-        fontSizeInput.addEventListener('input', (event) => {
-            adjustFontSize(event.target.value);
-            document.getElementById('fontSizeValue').innerText = `${event.target.value}%`;
-        });
-    
-        document.getElementById('saveResume').addEventListener('click', saveResume);
-        document.getElementById('clearResume').addEventListener('click', clearResume);
-        document.getElementById('copyResumeBase64').addEventListener('click', copyResumeBase64);
-        document.getElementById('pasteResumeBase64').addEventListener('click', pasteResumeBase64);
-        document.getElementById('sendWhatsApp').addEventListener('click', sendWhatsApp);
-        document.getElementById('newResume').addEventListener('click', createNewResume());
-    
-        adjustFontSize(fontSizeInput.value);
+    // Create new resume with unique ID
+    $('#newResume').click(function() {
+        const newResumeId = 'resume-' + Date.now();
+        const newResumeContent = '<h3 id="name" class="text-primary">New Resume</h3><p id="title">Your Title Here</p><div class="row"><div class="col-sm-6"><h5>Technical Skills</h5><ul><li>Skill 1</li><li>Skill 2</li><li>Skill 3</li></ul></div><div class="col-sm-6"><h5>Work Experience</h5><p><strong>Your Position</strong> at Company (Year - Year)</p></div></div>';
+        $('#resume').attr('data-id', newResumeId).html(newResumeContent);
+        highlightActiveResume();
+    });
+
+    // Select resume template and edit.
+    $('.select-btn').on('click', function() {
+        const resumeBody = $(this).closest('.carousel-item').find('.resume-body').html();
+        const resumeJson = { id: "tmpl1" , name: 'newtmpl', content: resumeBody }
+        localStorage.setItem('savedResumes', resumeJson);
+        window.location.href = 'edit.html';
     });
     
 
-    // Select resume template and edit.
-    // $('.select-btn').on('click', function() {
-    //     const resumeBody = $(this).closest('.carousel-item').find('.resume-body').html();
-    //     const resumeJson = { id: "tmpl1" , name: 'newtmpl', content: resumeBody }
-    //     localStorage.setItem('myresume', resumeJson);
-    //     window.location.href = 'edit.html';
-    // });
-    
+    // Save resume
+    $('#saveResume').click(function() {
+        const resumeContent = $('#resume').html();
+        const resumeName = $('#name').text();
+        const resumeId = $('#resume').attr('data-id');
+        const savedResumes = localStorage.getItem('savedResumes') ? JSON.parse(localStorage.getItem('savedResumes')) : [];
+        
+        const existingIndex = savedResumes.findIndex(resume => resume.id === resumeId);
+        if (existingIndex !== -1) {
+            savedResumes[existingIndex] = { id: resumeId, name: resumeName, content: resumeContent };
+        } else {
+            savedResumes.push({ id: resumeId, name: resumeName, content: resumeContent });
+        }
 
+        localStorage.setItem('savedResumes', JSON.stringify(savedResumes));
+        loadSavedResumes();
+    });
+
+    // Load saved resumes
+    function loadSavedResumes() {
+        const savedResumes = localStorage.getItem('savedResumes') ? JSON.parse(localStorage.getItem('savedResumes')) : [];
+        $('#savedResumes').empty();
+        savedResumes.forEach((resume, index) => {
+            $('#savedResumes').append(`
+                <div class="resume-item list-group-item" data-id="${resume.id}">
+                    <span>${resume.name}</span>
+                    <div class="resume-actions">
+                        <button class="btn btn-sm btn-primary" onclick="editResume(${index})"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteResume(${index})"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                </div>
+            `);
+        });
+        highlightActiveResume();
+    }
+
+    // Edit resume
+    window.editResume = function(index) {
+        const savedResumes = localStorage.getItem('savedResumes') ? JSON.parse(localStorage.getItem('savedResumes')) : [];
+        const resume = savedResumes[index];
+        $('#resume').attr('data-id', resume.id).html(resume.content);
+        highlightActiveResume();
+    };
+
+    // Delete resume
+    window.deleteResume = function(index) {
+        let savedResumes = localStorage.getItem('savedResumes') ? JSON.parse(localStorage.getItem('savedResumes')) : [];
+        savedResumes.splice(index, 1);
+        localStorage.setItem('savedResumes', JSON.stringify(savedResumes));
+        loadSavedResumes();
+    };
+
+    // Copy resume to Base64
+    $('#copyResumeBase64').click(function() {
+        const resumeContent = $('#resume').html();
+        const resumeBase64 = btoa(unescape(encodeURIComponent(resumeContent)));
+        navigator.clipboard.writeText(resumeBase64).then(function() {
+            $('#successMessage').fadeIn().delay(2000).fadeOut();
+        });
+    });
+
+    // Paste resume from Base64
+    $('#pasteResumeBase64').click(function() {
+        navigator.clipboard.readText().then(function(text) {
+            const resumeContent = decodeURIComponent(escape(atob(text)));
+            $('#resume').html(resumeContent);
+            $('#saveResume').click();
+        });
+    });
+
+    // Highlight active resume
+    function highlightActiveResume() {
+        const resumeId = $('#resume').attr('data-id');
+        $('.resume-item').removeClass('active-resume');
+        $(`.resume-item[data-id="${resumeId}"]`).addClass('active-resume');
+    }
+
+    // Set font size for all elements under #resume based on percentage
+    function setFontSize(fontSizePercentage) {
+        $('#resume').find('*').each(function() {
+            const originalFontSize = $(this).data('original-font-size');
+            if (!originalFontSize) {
+                const currentFontSize = parseFloat($(this).css('font-size').replace('px', ''));
+                $(this).data('original-font-size', currentFontSize);
+            }
+            const newFontSize = $(this).data('original-font-size') * (fontSizePercentage / 100);
+            $(this).css('font-size', newFontSize + 'px');
+        });
+    }
+
+    // Manual font size adjustment using scroller
+    $('#fontSizeControl').on('input', function() {
+        const fontSize = $(this).val();
+        setFontSize(fontSize);
+        $('#fontSizeValue').text(fontSize + '%');
+    });
+
+    // Initial load of saved resumes
+    loadSavedResumes();
 });
