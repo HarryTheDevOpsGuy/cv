@@ -49,22 +49,42 @@ $(document).ready(function() {
     });
 
     // Load saved resumes
+    // function loadSavedResumes() {
+    //     const savedResumes = localStorage.getItem('savedResumes') ? JSON.parse(localStorage.getItem('savedResumes')) : [];
+    //     $('#savedResumes').empty();
+    //     savedResumes.forEach((resume, index) => {
+    //         $('#savedResumes').append(`
+    //             <div class="resume-item list-group-item" data-id="${resume.id}">
+    //                 <span>${resume.name}</span>
+    //                 <div class="resume-actions">
+    //                     <button class="btn btn-sm btn-primary" onclick="editResume(${index})"><i class="fas fa-edit"></i></button>
+    //                     <button class="btn btn-sm btn-danger" onclick="deleteResume(${index})"><i class="fas fa-trash-alt"></i></button>
+    //                 </div>
+    //             </div>
+    //         `);
+    //     });
+    //     highlightActiveResume();
+    // }
+
+    // Load saved resumes
     function loadSavedResumes() {
         const savedResumes = localStorage.getItem('savedResumes') ? JSON.parse(localStorage.getItem('savedResumes')) : [];
         $('#savedResumes').empty();
+        resumeListElement.innerHTML = "";
         savedResumes.forEach((resume, index) => {
-            $('#savedResumes').append(`
-                <div class="resume-item list-group-item" data-id="${resume.id}">
-                    <span>${resume.name}</span>
-                    <div class="resume-actions">
-                        <button class="btn btn-sm btn-primary" onclick="editResume(${index})"><i class="fas fa-edit"></i></button>
-                        <button class="btn btn-sm btn-danger" onclick="deleteResume(${index})"><i class="fas fa-trash-alt"></i></button>
-                    </div>
+            const listItem = document.createElement('li');
+            listItem.className = `list-group-item d-flex justify-content-between align-items-center`;
+            listItem.innerHTML = `
+                ${resume.name} (${resume.id}) 
+                <div>
+                    <i class="fas fa-edit action-btn" onclick="editResume('${index}')" title="Edit"></i>
+                    <i class="fas fa-trash action-btn" onclick="deleteResume('${index}')" title="Delete"></i>
                 </div>
-            `);
+            `;
+            resumeListElement.appendChild(listItem);
         });
-        highlightActiveResume();
     }
+
 
     // Edit resume
     window.editResume = function(index) {
