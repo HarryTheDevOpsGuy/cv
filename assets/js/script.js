@@ -24,12 +24,14 @@ $(document).ready(function() {
 
 
     $('.select-btn').click(function() {
-        const resumeContent = $(this).closest('.carousel-item').find('.resume-body').html();
+        const rawContent = $(this).closest('.carousel-item').find('.resume-body').html();
+        const resumeContent = rawContent.find('.select-btn').remove()
         const resumeName = $(this).closest('.carousel-item').find('#name').text();
         const resumeId = $(this).closest('.carousel-item').find('#resume').attr('data-id');
         // const resumeContent = $('#resume').html();
         // const resumeName = $('#name').text();
         // const resumeId = $('#resume').attr('data-id');
+        
         const savedResumes = localStorage.getItem('savedResumes') ? JSON.parse(localStorage.getItem('savedResumes')) : [];
         const existingIndex = savedResumes.findIndex(resume => resume.id === resumeId);
         if (existingIndex !== -1) {
