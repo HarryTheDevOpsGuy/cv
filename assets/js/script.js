@@ -34,7 +34,7 @@ $(document).ready(function() {
     $('#saveResume').click(function() {
         const resumeContent = $('#resume').html();
         const resumeName = $('#name').text();
-        const resumeId = $('#resume').attr('data-id');
+        const resumeId = 'resume-' + Date.now();
         const savedResumes = localStorage.getItem('savedResumes') ? JSON.parse(localStorage.getItem('savedResumes')) : [];
         
         const existingIndex = savedResumes.findIndex(resume => resume.id === resumeId);
@@ -75,7 +75,7 @@ $(document).ready(function() {
             const listItem = document.createElement('li');
             listItem.className = `list-group-item d-flex justify-content-between align-items-center`;
             listItem.innerHTML = `
-                ${resume.name} (${resume.id}) 
+                ${resume.name}
                 <div>
                     <i class="fas fa-edit action-btn" onclick="editResume('${index}')" title="Edit"></i>
                     <i class="fas fa-trash action-btn" onclick="deleteResume('${index}')" title="Delete"></i>
