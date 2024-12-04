@@ -37,11 +37,6 @@ $('#fontSizeControl').on('input', function() {
     adjustFontSizeToFit();
 });
 
-// Automatically adjust font size on document ready to fit within #resume
-$(document).ready(function() {
-    adjustFontSizeToFit();
-});
-
 
 $(document).ready(function() {
     // Create new resume with unique ID
