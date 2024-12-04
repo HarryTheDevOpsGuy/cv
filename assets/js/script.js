@@ -69,7 +69,7 @@ $(document).ready(function() {
     // Load saved resumes
     function loadSavedResumes() {
         const savedResumes = localStorage.getItem('savedResumes') ? JSON.parse(localStorage.getItem('savedResumes')) : [];
-        $('#savedResumes').empty();
+        const resumeListElement = document.getElementById("resume-list");
         resumeListElement.innerHTML = "";
         savedResumes.forEach((resume, index) => {
             const listItem = document.createElement('li');
