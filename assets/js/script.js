@@ -12,7 +12,7 @@ $(document).ready(function() {
 
     $('.select-btn').click(function() {
         const rawContent = $(this).closest('.carousel-item').find('.resume-body').html();
-        const resumeContent = rawContent.find('.select-btn').remove()
+        const resumeContent = rawContent.find('.select-btn').remove();
         const resumeName = $(this).closest('.carousel-item').find('#name').text();
         const resumeId = 'resume-' + Date.now();
         const savedResumes = localStorage.getItem('savedResumes') ? JSON.parse(localStorage.getItem('savedResumes')) : [];
