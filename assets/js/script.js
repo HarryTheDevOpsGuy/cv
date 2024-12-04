@@ -31,7 +31,7 @@ $(document).ready(function() {
         // const resumeName = $('#name').text();
         // const resumeId = $('#resume').attr('data-id');
         const savedResumes = localStorage.getItem('savedResumes') ? JSON.parse(localStorage.getItem('savedResumes')) : [];
-        
+        alert(savedResumes);
         const existingIndex = savedResumes.findIndex(resume => resume.id === resumeId);
         if (existingIndex !== -1) {
             savedResumes[existingIndex] = { id: resumeId, name: resumeName, content: resumeContent };
@@ -41,7 +41,6 @@ $(document).ready(function() {
 
         localStorage.setItem('savedResumes', JSON.stringify(savedResumes));
         window.location.href = 'edit.html';
-        loadSavedResumes();
     });
     
 
