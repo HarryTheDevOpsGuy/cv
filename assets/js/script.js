@@ -168,5 +168,5 @@ $('#fontSizeControl').on('input', function() {
 
     // Initial load of saved resumes
     loadSavedResumes();
-    // adjustFontSizeToFit();
+    adjustFontSizeToFit();
 });
