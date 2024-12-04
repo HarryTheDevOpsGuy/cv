@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevOps Portfolio</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <style>
+    /* Dark Theme Styles */
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      background-color: #212121;
+      padding: 1rem 0;
+    }
+
+    .navbar-brand,
+    .navbar-nav .nav-link {
+      color: #e0e0e0;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #3498db;
+    }
+
+    /* Section Titles */
+    .section-title {
+      text-align: center;
+      font-size: 2.5em;
+      color: #ffffff;
+      margin: 30px 0;
+    }
+
+    /* Skills Section */
+    .skills-section {
+      background-color: #1f1f1f;
+      padding: 40px 0;
+    }
+
+    .skill-card {
+      background-color: #2c2c2c;
+      border-radius: 8px;
+      padding: 20px;
+      color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .skill-card i {
+      font-size: 3em;
+      color: #3498db;
+    }
+
+    /* Timeline Styles */
+    .timeline {
+      position: relative;
+      padding: 10px 0;
+      list-style-type: none;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .timeline:before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      height: 100%;
+      border-left: 2px solid #3498db;
+      top: 0;
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 30px;
+      width: 50%;
+      padding-left: 30px;
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+
+    .timeline-item .timeline-content {
+      background-color: #2c2c2c;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      position: relative;
+      color: #e0e0e0;
+    }
+
+    .timeline-item .timeline-content i {
+      position: absolute;
+      top: 20px;
+      left: -20px;
+      font-size: 30px;
+      color: #3498db;
+    }
+
+    .timeline-item .timeline-content h4 {
+      margin: 0;
+      color: #ffffff;
+    }
+
+    .timeline-item .timeline-content p {
+      color: #bdc3c7;
+      font-size: 1.1em;
+      margin-top: 10px;
+    }
+
+    .timeline-item .timeline-content .date {
+      font-size: 0.9em;
+      color: #95a5a6;
+      margin-top: 10px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #212121;
+      padding: 20px;
+      text-align: center;
+      color: #e0e0e0;
+    }
+
+    footer a {
+      color: #3498db;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Hire Me Section */
+    .hire-me {
+      background-color: #1f1f1f;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .hire-me h2 {
+      font-size: 2.5em;
+      color: #ffffff;
+    }
+
+    .hire-me button {
+      background-color: #3498db;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .hire-me button:hover {
+      background-color: #2980b9;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#">DevOps Portfolio</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#experience">Experience</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#skills">Skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#devops-tools">DevOps Tools</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#deployed">Deployed Solutions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#hire-me">Hire Me</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <h2 class="section-title">Professional Experience</h2>
+    <ul class="timeline">
+      <li class="timeline-item">
+        <div class="timeline-content">
+          <i class="fas fa-briefcase"></i>
+          <h4>DevOps Engineer - Company A</h4>
+          <p>Led the implementation of CI/CD pipelines using Jenkins, Terraform, and Ansible to automate deployments,
+            improving development efficiency by 30%.</p>
+          <div class="date">Jan 2022 - Present</div>
+        </div>
+      </li>
+      <li class="timeline-item">
+        <div class="timeline-content">
+          <i class="fas fa-cogs"></i>
+          <h4>Cloud Infrastructure Engineer - Company B</h4>
+          <p>Designed and deployed AWS-based infrastructure using CloudFormation and managed EC2 instances, RDS, and
+            S3 for scalable solutions.</p>
+          <div class="date">Jun 2020 - Dec 2021</div>
+        </div>
+      </li>
+      <li class="timeline-item">
+        <div class="timeline-content">
+          <i class="fab fa-linux"></i>
+          <h4>Linux Administrator - Company C</h4>
+          <p>Managed and optimized Linux servers, ensuring 99.9% uptime and enhancing security by applying patch
+            management and hardening techniques.</p>
+          <div class="date">Jan 2018 - May 2020</div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills-section">
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="skill-card">
+            <i class="fab fa-docker"></i>
+            <h4>Docker</h4>
+            <p>Experience in containerization, managing Docker images, and orchestrating containers with Docker Compose.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="skill-card">
+            <i class="fas fa-cloud"></i>
+            <h4>AWS</h4>
+            <p>Strong expertise in AWS services like EC2, S3, Lambda, and CloudFormation for cloud architecture and automation.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="skill-card">
+            <i class="fab fa-ansible"></i>
+            <h4>Ansible</h4>
+            <p>Experience in automating infrastructure deployment and configuration management using Ansible playbooks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DevOps Tools Section -->
+  <section id="devops-tools" class="skills-section">
+    <h2 class="section-title">DevOps Tools</h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="skill-card">
+            <i class="fab fa-gitlab"></i>
+            <h4>GitLab CI/CD</h4>
+            <p>CI/CD pipelines with GitLab, automated testing, and deployment using runners.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="skill-card">
+            <i class="fab fa-kubernetes"></i>
+            <h4>Kubernetes</h4>
+            <p>Orchestrated containerized applications on Kubernetes clusters, ensuring high availability and scalability.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="skill-card">
+            <i class="fab fa-terraform"></i>
+            <h4>Terraform</h4>
+            <p>Infrastructure as Code (IaC) with Terraform to provision cloud resources across AWS, Azure, and GCP.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="skill-card">
+            <i class="fas fa-cloudversify"></i>
+            <h4>Helm</h4>
+            <p>Package and manage Kubernetes applications with Helm charts for easier deployment and configuration.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Deployed Solutions Section -->
+  <section id="deployed" class="skills-section">
+    <h2 class="section-title">Deployed Services</h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="skill-card">
+            <i class="fas fa-cogs"></i>
+            <h4>Microservices</h4>
+            <p>Deployed microservices-based applications on AWS using ECS and EKS, ensuring scalable and maintainable systems.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="skill-card">
+            <i class="fas fa-database"></i>
+            <h4>Database Solutions</h4>
+            <p>Deployed managed databases on AWS RDS and optimized database clusters for high availability and performance.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="skill-card">
+            <i class="fas fa-shield-alt"></i>
+            <h4>Security Hardening</h4>
+            <p>Implemented security best practices, including SSL encryption, WAF configuration, and access control policies.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hire Me Section -->
+  <section id="hire-me" class="hire-me">
+    <h2>Looking for a DevOps Expert?</h2>
+    <p>Contact me to bring efficiency and scalability to your infrastructure. Let’s build the future together.</p>
+    <button>Hire Me</button>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <p>&copy; 2024 DevOps Portfolio. All rights reserved. | <a href="mailto:your.email@example.com">Contact Me</a></p>
+  </footer>
+
+  <!-- jQuery, Popper.js, and Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DevOps Engineer Portfolio showcasing skills, tools, and experience in automation, cloud platforms, and CI/CD">
+  <title>DevOps Engineer Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+  <style>
+    /* Reset some default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* General Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px 0;
+    }
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    nav ul {
+      display: flex;
+      list-style-type: none;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #00bcd4;
+    }
+
+    /* Home Section */
+    #home {
+      background-color: #2c3e50;
+      color: #fff;
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    #home h2 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    #home p {
+      font-size: 1.25rem;
+    }
+
+    /* Skills Section */
+    #skills, #tools, #experience, #contact {
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+    }
+
+    .skills, .tools {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .skill, .tool {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      width: 200px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .skill:hover, .tool:hover {
+      transform: translateY(-10px);
+    }
+
+    .skill i, .tool i {
+      font-size: 3rem;
+      color: #00bcd4;
+      margin-bottom: 10px;
+    }
+
+    .skill-title, .tool-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    /* Timeline for Experience Section */
+    .timeline {
+      list-style: none;
+      padding: 0;
+    }
+
+    .timeline-item {
+      display: flex;
+      margin-bottom: 30px;
+    }
+
+    .timeline-item-content {
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+    }
+
+    .timeline-item .date {
+      font-weight: 600;
+      color: #00bcd4;
+    }
+
+    .timeline-item .timeline-item-content h4 {
+      font-size: 1.5rem;
+      margin-top: 10px;
+      color: #333;
+    }
+
+    .timeline-item ul {
+      list-style: none;
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    .timeline-item ul li {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* Contact Section */
+    #contact .contact-btn {
+      display: inline-block;
+      background-color: #00bcd4;
+      color: #fff;
+      padding: 12px 30px;
+      border-radius: 4px;
+      font-size: 1.25rem;
+      text-transform: uppercase;
+      transition: background-color 0.3s ease;
+    }
+
+    #contact .contact-btn:hover {
+      background-color: #0097a7;
+    }
+
+    /* Footer Section */
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .skills, .tools {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <div class="logo">DevOps Portfolio</div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#tools">Tools</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home">
+    <div class="container">
+      <h2>Welcome to My DevOps Engineer Portfolio</h2>
+      <p>Automation, Infrastructure Management, and CI/CD Expert</p>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills">
+        <div class="skill">
+          <i class="fas fa-cogs"></i>
+          <h3 class="skill-title">Automation</h3>
+        </div>
+        <div class="skill">
+          <i class="fas fa-cloud"></i>
+          <h3 class="skill-title">Cloud Platforms</h3>
+        </div>
+        <div class="skill">
+          <i class="fas fa-code"></i>
+          <h3 class="skill-title">Scripting & Coding</h3>
+        </div>
+        <div class="skill">
+          <i class="fas fa-server"></i>
+          <h3 class="skill-title">Infrastructure Management</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools Section -->
+  <section id="tools">
+    <div class="container">
+      <h2 class="section-title">Tools</h2>
+      <div class="tools">
+        <div class="tool">
+          <i class="fab fa-docker"></i>
+          <h3 class="tool-title">Docker</h3>
+        </div>
+        <div class="tool">
+          <i class="fab fa-kubernetes"></i>
+          <h3 class="tool-title">Kubernetes</h3>
+        </div>
+        <div class="tool">
+          <i class="fab fa-aws"></i>
+          <h3 class="tool-title">AWS</h3>
+        </div>
+        <div class="tool">
+          <i class="fas fa-cogs"></i>
+          <h3 class="tool-title">Terraform</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+      <ul class="timeline">
+        <li class="timeline-item">
+          <div class="timeline-item-content">
+            <span class="date">Jan 2020 - Present</span>
+            <h4>DevOps Engineer - Company ABC</h4>
+            <ul>
+              <li>Implemented CI/CD pipelines using Jenkins and GitLab CI</li>
+              <li>Automated AWS infrastructure provisioning using Terraform</li>
+              <li>Managed Kubernetes clusters with Helm for application deployment</li>
+            </ul>
+          </div>
+        </li>
+        <li class="timeline-item right">
+          <div class="timeline-item-content">
+            <span class="date">Mar 2017 - Dec 2019</span>
+            <h4>Cloud Infrastructure Engineer - Company XYZ</h4>
+            <ul>
+              <li>Developed automation scripts in Python and Bash</li>
+              <li>Optimized server provisioning and scaling on AWS</li>
+              <li>Monitored infrastructure using Prometheus and Grafana</li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <p>Feel free to reach out to me!</p>
+      <a href="mailto:your.email@example.com" class="contact-btn">Contact Me</a>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 DevOps Engineer Portfolio. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
