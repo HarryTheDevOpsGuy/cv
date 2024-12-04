@@ -11,15 +11,37 @@ $(document).ready(function() {
     });
 
     // Select resume template and edit.
-    $('.select-btn').on('click', function() {
-        const resumeBody = $(this).closest('.carousel-item').find('.resume-body').html();
-        // const resumeJson = { id: "tmpl1" , name: 'newtmpl', content: resumeBody };
-        // localStorage.setItem('savedResumes', JSON.stringify(resumeJson));
-        // alert(JSON.stringify(resumeJson))
+    // $('.select-btn').on('click', function() {
+    //     const resumeBody = $(this).closest('.carousel-item').find('.resume-body').html();
+    //     // const resumeJson = { id: "tmpl1" , name: 'newtmpl', content: resumeBody };
+    //     // localStorage.setItem('savedResumes', JSON.stringify(resumeJson));
+    //     // alert(JSON.stringify(resumeJson))
+    //     window.location.href = 'edit.html';
+    //     // const newResumeContent = '<h3 id="name" class="text-primary">New Resume</h3><p id="title">Your Title Here</p><div class="row"><div class="col-sm-6"><h5>Technical Skills</h5><ul><li>Skill 1</li><li>Skill 2</li><li>Skill 3</li></ul></div><div class="col-sm-6"><h5>Work Experience</h5><p><strong>Your Position</strong> at Company (Year - Year)</p></div></div>';
+    //     $('#resume').attr('data-id', newResumeId).html(resumeBody);
+    //     highlightActiveResume();
+    // });
+
+
+    $('.select-btn').click(function() {
+        const resumeContent = $(this).closest('.carousel-item').find('.resume-body').html();
+        const resumeName = $(this).closest('.carousel-item').find('#name').text();
+        const resumeId = $(this).closest('.carousel-item').find('#resume').attr('data-id');
+        // const resumeContent = $('#resume').html();
+        // const resumeName = $('#name').text();
+        // const resumeId = $('#resume').attr('data-id');
+        const savedResumes = localStorage.getItem('savedResumes') ? JSON.parse(localStorage.getItem('savedResumes')) : [];
+        
+        const existingIndex = savedResumes.findIndex(resume => resume.id === resumeId);
+        if (existingIndex !== -1) {
+            savedResumes[existingIndex] = { id: resumeId, name: resumeName, content: resumeContent };
+        } else {
+            savedResumes.push({ id: resumeId, name: resumeName, content: resumeContent });
+        }
+
+        localStorage.setItem('savedResumes', JSON.stringify(savedResumes));
         window.location.href = 'edit.html';
-        // const newResumeContent = '<h3 id="name" class="text-primary">New Resume</h3><p id="title">Your Title Here</p><div class="row"><div class="col-sm-6"><h5>Technical Skills</h5><ul><li>Skill 1</li><li>Skill 2</li><li>Skill 3</li></ul></div><div class="col-sm-6"><h5>Work Experience</h5><p><strong>Your Position</strong> at Company (Year - Year)</p></div></div>';
-        $('#resume').attr('data-id', newResumeId).html(resumeBody);
-        highlightActiveResume();
+        loadSavedResumes();
     });
     
 
