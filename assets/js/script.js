@@ -165,5 +165,5 @@ $(document).ready(function() {
 
     // Initial load of saved resumes
     loadSavedResumes();
-    // adjustFontSizeToFit();
+    adjustFontSizeToFit();
 });
