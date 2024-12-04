@@ -1,6 +1,48 @@
 // document.getElementById("header").innerHTML = document.querySelector("header").innerHTML;
 // document.getElementById("footer").innerHTML = document.querySelector("footer").innerHTML;
 
+
+// Function to set font size for all elements under #resume based on percentage
+function setFontSize(fontSizePercentage) {
+    $('#resume').find('*').each(function() {
+        const originalFontSize = $(this).data('original-font-size');
+        if (!originalFontSize) {
+            const currentFontSize = parseFloat($(this).css('font-size').replace('px', ''));
+            $(this).data('original-font-size', currentFontSize);
+        }
+        const newFontSize = $(this).data('original-font-size') * (fontSizePercentage / 100);
+        $(this).css('font-size', newFontSize + 'px');
+    });
+}
+
+// Function to adjust font size to fit within #resume
+function adjustFontSizeToFit() {
+    const $resume = $('#resume');
+    const $elements = $resume.find('*');
+    const resumeWidth = $resume.width();
+    let fontSizePercentage = 100;
+
+    // Continue reducing font size percentage until text fits within the #resume width
+    while ($elements[0].scrollWidth > resumeWidth && fontSizePercentage > 0) {
+        fontSizePercentage -= 1;
+        setFontSize(fontSizePercentage);
+    }
+}
+
+// Manual font size adjustment using scroller
+$('#fontSizeControl').on('input', function() {
+    const fontSize = $(this).val();
+    setFontSize(fontSize);
+    $('#fontSizeValue').text(fontSize + '%');
+    adjustFontSizeToFit();
+});
+
+// Automatically adjust font size on document ready to fit within #resume
+$(document).ready(function() {
+    adjustFontSizeToFit();
+});
+
+
 $(document).ready(function() {
     // Create new resume with unique ID
     $('#newResume').click(function() {
@@ -106,26 +148,27 @@ $(document).ready(function() {
         $(`.resume-item[data-id="${resumeId}"]`).addClass('active-resume');
     }
 
-    // Set font size for all elements under #resume based on percentage
-    function setFontSize(fontSizePercentage) {
-        $('#resume').find('*').each(function() {
-            const originalFontSize = $(this).data('original-font-size');
-            if (!originalFontSize) {
-                const currentFontSize = parseFloat($(this).css('font-size').replace('px', ''));
-                $(this).data('original-font-size', currentFontSize);
-            }
-            const newFontSize = $(this).data('original-font-size') * (fontSizePercentage / 100);
-            $(this).css('font-size', newFontSize + 'px');
-        });
-    }
+    // // Set font size for all elements under #resume based on percentage
+    // function setFontSize(fontSizePercentage) {
+    //     $('#resume').find('*').each(function() {
+    //         const originalFontSize = $(this).data('original-font-size');
+    //         if (!originalFontSize) {
+    //             const currentFontSize = parseFloat($(this).css('font-size').replace('px', ''));
+    //             $(this).data('original-font-size', currentFontSize);
+    //         }
+    //         const newFontSize = $(this).data('original-font-size') * (fontSizePercentage / 100);
+    //         $(this).css('font-size', newFontSize + 'px');
+    //     });
+    // }
 
-    // Manual font size adjustment using scroller
-    $('#fontSizeControl').on('input', function() {
-        const fontSize = $(this).val();
-        setFontSize(fontSize);
-        $('#fontSizeValue').text(fontSize + '%');
-    });
+    // // Manual font size adjustment using scroller
+    // $('#fontSizeControl').on('input', function() {
+    //     const fontSize = $(this).val();
+    //     setFontSize(fontSize);
+    //     $('#fontSizeValue').text(fontSize + '%');
+    // });
 
     // Initial load of saved resumes
     loadSavedResumes();
+    adjustFontSizeToFit();
 });
