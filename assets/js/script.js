@@ -27,7 +27,7 @@ $(document).ready(function() {
         const rawContent = $(this).closest('.carousel-item').find('.resume-body').html();
         const resumeContent = rawContent.find('.select-btn').remove()
         const resumeName = $(this).closest('.carousel-item').find('#name').text();
-        const resumeId = $(this).closest('.carousel-item').find('#resume').attr('data-id');
+        const resumeId = 'resume-' + Date.now();
         // const resumeContent = $('#resume').html();
         // const resumeName = $('#name').text();
         // const resumeId = $('#resume').attr('data-id');
