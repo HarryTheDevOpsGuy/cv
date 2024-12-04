@@ -49,24 +49,6 @@ $(document).ready(function() {
     });
 
     // Load saved resumes
-    // function loadSavedResumes() {
-    //     const savedResumes = localStorage.getItem('savedResumes') ? JSON.parse(localStorage.getItem('savedResumes')) : [];
-    //     $('#savedResumes').empty();
-    //     savedResumes.forEach((resume, index) => {
-    //         $('#savedResumes').append(`
-    //             <div class="resume-item list-group-item" data-id="${resume.id}">
-    //                 <span>${resume.name}</span>
-    //                 <div class="resume-actions">
-    //                     <button class="btn btn-sm btn-primary" onclick="editResume(${index})"><i class="fas fa-edit"></i></button>
-    //                     <button class="btn btn-sm btn-danger" onclick="deleteResume(${index})"><i class="fas fa-trash-alt"></i></button>
-    //                 </div>
-    //             </div>
-    //         `);
-    //     });
-    //     highlightActiveResume();
-    // }
-
-    // Load saved resumes
     function loadSavedResumes() {
         const savedResumes = localStorage.getItem('savedResumes') ? JSON.parse(localStorage.getItem('savedResumes')) : [];
         const resumeListElement = document.getElementById("resume-list");
