@@ -153,8 +153,6 @@
       margin-bottom: 40px;
     }
     
-    
-    
     /* About Section */
     section#about {
       background-color: #1f1f1f;
@@ -195,18 +193,18 @@
     .skills {
       display: flex;
       justify-content: center;
-      gap: 30px;
+      gap: 20px;
       flex-wrap: wrap;
     }
     .skill {
       background-color: #1f1f1f;
-      padding: 40px;
+      padding: 20px;
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform */
       text-align: center;
-      flex: 1 1 300px;
-      max-width: 300px;
+      flex: 1 1 200px;
+      max-width: 200px;
     }
     .skill i {
       font-size: 3rem;
@@ -223,7 +221,6 @@
       margin-top: 10px;
     }
     .rating i {
-      /*color: #f1c40f;*/
       font-size: 1.5rem;
     }
     
@@ -232,68 +229,6 @@
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); /* Increase shadow on hover */
     }
 
-    /* Tools */
-    .tools {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
-    .tool {
-      background-color: #1f1f1f;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      text-align: center;
-      flex: 1 1 200px;
-      max-width: 200px;
-    }
-    .tool i {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      color: #1abc9c;
-    }
-    .tool-title {
-      font-size: 1.3rem;
-      font-weight: 500;
-      color: #e0e0e0;
-    }
-    
-    
-    /* Developed Tools */
-    .developed-tools {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-      margin-top: 40px;
-    }
-    .developed-tool {
-      background-color: #1f1f1f;
-      padding: 40px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      text-align: center;
-      flex: 1 1 250px;
-      max-width: 250px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform */
-    }
-    .developed-tool:hover {
-      transform: scale(1.1); /* Scale up the element */
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); /* Increase shadow on hover */
-    }
-    .developed-tool h4 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #1abc9c;
-      margin-bottom: 20px;
-    }
-    .developed-tool p {
-      font-size: 1.2rem;
-      color: #e0e0e0;
-      margin-bottom: 20px;
-    }
-    
     
     /* Developed Tools */
     
@@ -301,29 +236,32 @@
       display: flex;
       justify-content: space-around;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 10px;
     }
 
     .deployed-solution {
       background-color: #1f1f1f;
-      padding: 20px;
+      padding: 5px;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       text-align: center;
-      width: 200px;
       flex-grow: 1;
+      /*flex: 1 1 300px;*/
+      max-width: 250px;
       transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform */
     }
 
     .deployed-solution i {
-      font-size: 40px;
-      color: #3498db;
+      /*font-size: 40px;*/
+      font-size: 3rem;
+      color: #1abc9c;
     }
 
     .deployed-solution h4 {
       margin-top: 10px;
-      font-size: 1.2em;
-      color: #1abc9c;
+      font-size: 1.3em;
+      color: #e0e0e0;
+      font-weight: 500;
     }
 
     .deployed-solution p {
@@ -387,16 +325,16 @@
     }
 
     /* Responsive Styles */
-    @media (max-width: 768px) {
-      .skills, .tools {
-        flex-direction: column;
-      }
+    /*@media (max-width: 768px) {*/
+    /*  .skills, .tools {*/
+    /*    flex-direction: column;*/
+    /*  }*/
 
-      .timeline-item-content {
-        width: 80%;
-        margin-left: 0;
-      }
-    }
+    /*  .timeline-item-content {*/
+    /*    width: 80%;*/
+    /*    margin-left: 0;*/
+    /*  }*/
+    /*}*/
   </style>
 </head>
 <body>
@@ -605,29 +543,6 @@
     </div>
   </section>
 
-  <!-- Tools Section -->
-  <section id="tools" class="container">
-    <h2 class="section-title">DevOps Tools</h2>
-    <div class="tools">
-      <div class="tool">
-        <i class="fab fa-ansible"></i>
-        <div class="tool-title">Ansible</div>
-      </div>
-      <div class="tool">
-        <i class="fab fa-terraform"></i>
-        <div class="tool-title">Terraform</div>
-      </div>
-      <div class="tool">
-        <i class="fab fa-kubernetes"></i>
-        <div class="tool-title">Kubernetes</div>
-      </div>
-      <div class="tool">
-        <i class="fab fa-jenkins"></i>
-        <div class="tool-title">Jenkins</div>
-      </div>
-    </div>
-  </section>
-  
    <!-- Deployed Solutions Section -->
   <section id="deployed-solutions" class="container">
     <h2 class="section-title">Deployed Solutions</h2>
