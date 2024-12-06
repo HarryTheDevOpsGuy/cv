@@ -1,24 +1,98 @@
 ---
 layout: base
-title: "cv"
+title: "CV - Resume Builder"
 ---
 
-<div class="container mt-5"></div>
-    {{ content }}
-    <div class="mt-3 text-center">
-        <label for="fontSizeControl" class="form-label">Font Size: <span id="fontSizeValue">100%</span></label>
-        <input type="range" class="form-range font-size-control" id="fontSizeControl" min="50" max="200" value="100">
-    </div>
-    <div class="mt-3 text-center">
-        <button class="btn btn-primary" onclick="window.print()"><i class="fas fa-print me-2"></i> Print Resume</button>
-        <button class="btn btn-primary btn-icon" id="saveResume"><i class="fas fa-save"></i> Save</button>
-        <button class="btn btn-danger btn-icon" id="clearResume"><i class="fas fa-trash-alt"></i> Reset/Clear</button>
-        <button class="btn btn-info btn-icon" id="copyResume"><i class="fas fa-copy"></i> Copy Data</button>
-        <button class="btn btn-warning btn-icon" id="pasteResume"><i class="fas fa-clipboard"></i> Paste Data</button>
-        <button class="btn btn-success btn-icon" id="sendWhatsApp"><i class="fas fa-paper-plane"></i> Send to WhatsApp</button>
-    </div>
-    <div class="mt-3 text-center">
-        <span id="successMessage" class="success-msg">Data copied to clipboard!</span>
+<div class="container mt-5">
+    <h2 class="section-title">Resume builder</h2>
+    <div id="resumeCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-resumeid="1">
+                <div class="resume-info text-center">
+                    <h4>DevOps Resume 1</h4>
+                    <p>Experience with Docker, Kubernetes, and Jenkins...</p>
+                </div>
+                <div id="resume" class="resume-body rounded border p-3">
+                    <!-- This will update automatically -->
+                    <h3 id="name" class="text-primary">Harry Smith</h3>
+                    <p id="title">DevOps Engineer | System Administrator</p>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h5>Technical Skills</h5>
+                            <ul>
+                                <li>AWS, GCP, Azure</li>
+                                <li>CI/CD Pipeline Setup</li>
+                                <li>Linux Administration</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6">
+                            <h5>Work Experience</h5>
+                            <p><strong>Senior DevOps Engineer</strong> at DEF Ltd (2020 - Present)</p>
+                            <p><strong>Cloud Engineer</strong> at GHI Tech (2017 - 2020)</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary select-btn" data-resume="DevOps Resume 1">Select this resume</button>
+                    <!-- end -->
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="resume-info text-center">
+                    <h4>DevOps Resume 2</h4>
+                    <p>Experience with Docker, Kubernetes, and Jenkins...</p>
+                </div>
+                <div id="resume" data-resumeid="2" class="resume-body rounded border p-3">
+                    <!-- This will update automatically -->
+                    <h3 id="name" class="text-primary">abc Smith</h3>
+                    <p id="title">DevOps Engineer | System Administrator</p>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h5>Technical Skills</h5>
+                            <ul>
+                                <li>AWS, GCP, Azure</li>
+                                <li>CI/CD Pipeline Setup</li>
+                                <li>Linux Administration</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6">
+                            <h5>Work Experience</h5>
+                            <p><strong>Senior DevOps Engineer</strong> at DEF Ltd (2020 - Present)</p>
+                            <p><strong>Cloud Engineer</strong> at GHI Tech (2017 - 2020)</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary select-btn" data-resume="DevOps Resume 2">Select this resume</button>
+                    <!-- end -->
+                </div>
+            </div>
+            <!-- <div class="carousel-item">
+                <div class="resume-container">
+                    <h4>Resume 3: Trending DevOps</h4>
+                    <p>Editable and printable template</p>
+                    <button class="btn btn-primary select-btn" data-resume="DevOps Resume 3">Select this resume</button>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="resume-container">
+                    <h4>Resume 4: Trending DevOps</h4>
+                    <p>Editable and printable template</p>
+                    <button class="btn btn-primary select-btn" data-resume="DevOps Resume 4">Select this resume</button>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="resume-container">
+                    <h4>Resume 5: Trending DevOps</h4>
+                    <p>Editable and printable template</p>
+                    <button class="btn btn-primary select-btn" data-resume="DevOps Resume 5">Select this resume</button>
+                </div>
+            </div> -->
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#resumeCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#resumeCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
 </div>
 
