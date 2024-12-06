@@ -166,14 +166,14 @@
     
     .about-text {
       flex: 1 1 40%;
-      max-width: 400px;
+      max-width: 800px;
       font-size: 1.2rem;
       line-height: 1.8;
     }
     
     .about-image {
       flex: 1;
-      max-width: 400px;
+      max-width: 300px;
       text-align: center;
     }
 
@@ -317,7 +317,8 @@
       text-decoration: none;
       font-size: 1rem;
       font-weight: 600;
-      background-color: #1f1f1f; 
+      background-color: #e0e0e0; 
+      color: #1abc9c;
       padding: 12px 20px;
       border-radius: 5px;
       transition: all 0.3s ease;
@@ -329,9 +330,9 @@
     }
     
     .contact-link:hover {
-      background-color: transparent; 
-      color: #e0e0e0; 
-      border: 2px solid #1f1f1f;
+      background-color: #1abc9c;
+      color: #fff;
+      border: 2px solid #e0e0e0;
       transform: scale(1.1);
     }
     
@@ -362,6 +363,25 @@
       .about-text {
         text-align: center;
       }
+      
+      .contact h2 {
+        font-size: 2rem;
+      }
+    
+      .contact p {
+        font-size: 0.95rem;
+      }
+    
+      .contact-link {
+        font-size: 0.9rem;
+        padding: 10px 15px;
+      }
+    
+      .contact-link i {
+        font-size: 1rem;
+      }
+      
+      
     }
     
     @media (max-width: 480px) {
@@ -383,7 +403,7 @@
 <body>
   <!-- Header -->
   <header>
-    <h1>Harry The DevOps Guy</h1> 
+    <h1>Harry The DevOps Guy</h1>
   </header>
 
   <!-- Navigation -->
@@ -395,26 +415,17 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto">
-          <li><a href="#home">Home</a></li>
+          <!-- <li><a href="#home">Home</a></li> -->
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
-          <li><a href="#tools">Tools</a></li>
+          <li><a href="/resume.html">CV Builder</a></li>
           <li><a href="#deployed-solutions">Solutions</a></li>
           <li><a href="#experience">Experience</a></li>
-          
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
     </div> 
   </nav>
-  
-
-   <!--Home Section -->
-  <!--<section id="home" class="container text-center">-->
-  <!--  <h2>Welcome to My DevOps Portfolio</h2>-->
-  <!--  <p>Explore my skills, tools, and experience in DevOps engineering</p>-->
-  <!--</section>-->
-  
   
   <!-- Carousel Section -->
   <section id="home" class="mt-4">
@@ -464,15 +475,18 @@
     </div>
   </section>
   
-  
-  
-    <!-- About Section -->
+  <!-- About Section -->
   <section id="about">
     <h2 class="section-title">About Me</h2>
     <div class="container">
       <div class="about-content">
         <div class="about-text">
           <p>I am a passionate and results-driven DevOps engineer with over 10 years of experience in cloud computing, infrastructure automation, and CI/CD pipeline design. My expertise includes AWS, Kubernetes, Terraform, Jenkins, and many other tools that help streamline development and operational workflows.</p>
+          <div class="contact-links"> 
+            <a href="https://wa.me/yourwhatsapplink" class="contact-link" target="_blank">
+              <i class="fab fa-whatsapp"></i> Download CV
+            </a>
+          </div>
         </div>
         <div class="about-image">
           <img src="https://via.placeholder.com/400" alt="Profile Picture">
@@ -481,13 +495,6 @@
     </div>
   </section>
   
-  
-
-
-  
-  
-  
-
   <!-- Skills Section -->
   <section id="skills" class="container">
     <h2 class="section-title">Skills</h2>
@@ -688,17 +695,7 @@
 </section>
 
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <h2>Hire a DevOps Expert</h2>
-      <p>Ready to streamline your development and operations processes? Let's work together to build scalable, secure, and efficient systems. Connect with me through the following platforms:</p>
-      <a href="mailto:your.email@example.com" class="contact-btn">Get in Touch</a>
-    </div>
-  </section>
-  
-  
-  <!-- Contact Section -->
+<!-- Contact Section -->
 <section id="contact" class="contact">
   <div class="container">
     <h2>Hire a DevOps Expert</h2>
@@ -725,14 +722,10 @@
   </div>
 </section>
   
-  
-
-  
-
-  <!-- Footer -->
-  <footer>
-    <p><p>Made with ❤️ by <a href="#">Harry The DevOps Guy.</p>
-  </footer>
+<!-- Footer -->
+<footer>
+  <p><p>Made with ❤️ by <a href="#">Harry The DevOps Guy.</p>
+</footer>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
