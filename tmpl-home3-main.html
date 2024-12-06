@@ -153,60 +153,59 @@
       margin-bottom: 40px;
     }
     
-    
-    
     /* About Section */
-    section#about {
-      background-color: #1f1f1f;
-      padding: 60px 0;
-    }
-    .about-title {
-      font-size: 2.5rem;
-      font-weight: 600;
-      color: #1abc9c;
-      text-align: center;
-      margin-bottom: 30px;
-    }
     .about-content {
+      background-color: #1f1f1f;
       display: flex;
-      justify-content: space-around;
-      align-items: center;
       flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
     }
+    
     .about-text {
       flex: 1 1 40%;
-      max-width: 500px;
+      max-width: 400px;
       font-size: 1.2rem;
       line-height: 1.8;
     }
+    
     .about-image {
-      flex: 1 1 40%;
-      max-width: 500px;
+      flex: 1;
+      max-width: 400px;
       text-align: center;
     }
+
     .about-image img {
-      border-radius: 50%;
-      width: 80%;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     
+    .about-image img:hover {
+      transform: scale(1.05); /* Slight zoom on hover */
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+    }
 
     /* Skills */
     .skills {
       display: flex;
       justify-content: center;
-      gap: 30px;
+      gap: 20px;
       flex-wrap: wrap;
     }
     .skill {
       background-color: #1f1f1f;
-      padding: 40px;
+      padding: 20px;
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform */
       text-align: center;
-      flex: 1 1 300px;
-      max-width: 300px;
+      flex: 1 1 200px;
+      max-width: 200px;
     }
     .skill i {
       font-size: 3rem;
@@ -223,7 +222,6 @@
       margin-top: 10px;
     }
     .rating i {
-      /*color: #f1c40f;*/
       font-size: 1.5rem;
     }
     
@@ -232,68 +230,6 @@
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); /* Increase shadow on hover */
     }
 
-    /* Tools */
-    .tools {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
-    .tool {
-      background-color: #1f1f1f;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      text-align: center;
-      flex: 1 1 200px;
-      max-width: 200px;
-    }
-    .tool i {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      color: #1abc9c;
-    }
-    .tool-title {
-      font-size: 1.3rem;
-      font-weight: 500;
-      color: #e0e0e0;
-    }
-    
-    
-    /* Developed Tools */
-    .developed-tools {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-      margin-top: 40px;
-    }
-    .developed-tool {
-      background-color: #1f1f1f;
-      padding: 40px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      text-align: center;
-      flex: 1 1 250px;
-      max-width: 250px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform */
-    }
-    .developed-tool:hover {
-      transform: scale(1.1); /* Scale up the element */
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); /* Increase shadow on hover */
-    }
-    .developed-tool h4 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #1abc9c;
-      margin-bottom: 20px;
-    }
-    .developed-tool p {
-      font-size: 1.2rem;
-      color: #e0e0e0;
-      margin-bottom: 20px;
-    }
-    
     
     /* Developed Tools */
     
@@ -301,29 +237,30 @@
       display: flex;
       justify-content: space-around;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 10px;
     }
 
     .deployed-solution {
       background-color: #1f1f1f;
-      padding: 20px;
+      padding: 5px;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       text-align: center;
-      width: 200px;
       flex-grow: 1;
+      max-width: 250px;
       transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform */
     }
 
     .deployed-solution i {
-      font-size: 40px;
-      color: #3498db;
+      font-size: 3rem;
+      color: #1abc9c;
     }
 
     .deployed-solution h4 {
       margin-top: 10px;
-      font-size: 1.2em;
-      color: #1abc9c;
+      font-size: 1.3em;
+      color: #e0e0e0;
+      font-weight: 500;
     }
 
     .deployed-solution p {
@@ -347,33 +284,62 @@
     
 
     /* Contact */
+    
+    
     .contact {
-      background-color: #1abc9c;
-      color: #fff;
-      padding: 60px 0;
+      padding: 50px 20px;
       text-align: center;
+      background-color: #1abc9c;
     }
+    
     .contact h2 {
       font-size: 2.5rem;
-      font-weight: 600;
-    }
-    .contact p {
-      font-size: 1.2rem;
       margin-bottom: 20px;
     }
-    .contact-btn {
-      font-size: 1.3rem;
-      padding: 15px 30px;
-      background-color: #fff;
-      color: #1abc9c;
-      border-radius: 5px;
+    
+    .contact p {
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .contact-link {
+      text-decoration: none;
+      font-size: 1rem;
       font-weight: 600;
-      transition: background-color 0.3s ease;
+      background-color: #1f1f1f; 
+      padding: 12px 20px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 2px solid transparent;
+      
     }
-    .contact-btn:hover {
-      background-color: #1abc9c;
-      color: #fff;
+    
+    .contact-link:hover {
+      background-color: transparent; 
+      color: #e0e0e0; 
+      border: 2px solid #1f1f1f;
+      transform: scale(1.1);
     }
+    
+    /* Icon Styling */
+    .contact-link i {
+      font-size: 2.0rem;
+    }
+    
 
     /* Footer */
     footer {
@@ -386,17 +352,32 @@
       font-size: 1rem;
     }
 
-    /* Responsive Styles */
+    /* Responsive Design */
     @media (max-width: 768px) {
-      .skills, .tools {
+      .about-content {
         flex-direction: column;
+        text-align: center;
       }
-
-      .timeline-item-content {
-        width: 80%;
-        margin-left: 0;
+    
+      .about-text {
+        text-align: center;
       }
     }
+    
+    @media (max-width: 480px) {
+      .about-title {
+        font-size: 2rem;
+      }
+    
+      .about-text {
+        font-size: 0.95rem;
+      }
+    
+      .about-image img {
+        border-radius: 10px; 
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -487,8 +468,8 @@
   
     <!-- About Section -->
   <section id="about">
+    <h2 class="section-title">About Me</h2>
     <div class="container">
-      <h2 class="about-title">About Me</h2>
       <div class="about-content">
         <div class="about-text">
           <p>I am a passionate and results-driven DevOps engineer with over 10 years of experience in cloud computing, infrastructure automation, and CI/CD pipeline design. My expertise includes AWS, Kubernetes, Terraform, Jenkins, and many other tools that help streamline development and operational workflows.</p>
@@ -499,6 +480,12 @@
       </div>
     </div>
   </section>
+  
+  
+
+
+  
+  
   
 
   <!-- Skills Section -->
@@ -605,29 +592,6 @@
     </div>
   </section>
 
-  <!-- Tools Section -->
-  <section id="tools" class="container">
-    <h2 class="section-title">DevOps Tools</h2>
-    <div class="tools">
-      <div class="tool">
-        <i class="fab fa-ansible"></i>
-        <div class="tool-title">Ansible</div>
-      </div>
-      <div class="tool">
-        <i class="fab fa-terraform"></i>
-        <div class="tool-title">Terraform</div>
-      </div>
-      <div class="tool">
-        <i class="fab fa-kubernetes"></i>
-        <div class="tool-title">Kubernetes</div>
-      </div>
-      <div class="tool">
-        <i class="fab fa-jenkins"></i>
-        <div class="tool-title">Jenkins</div>
-      </div>
-    </div>
-  </section>
-  
    <!-- Deployed Solutions Section -->
   <section id="deployed-solutions" class="container">
     <h2 class="section-title">Deployed Solutions</h2>
@@ -727,15 +691,47 @@
   <!-- Contact Section -->
   <section id="contact" class="contact">
     <div class="container">
-      <h2>Contact Me</h2>
-      <p>If you would like to discuss opportunities or DevOps solutions, feel free to reach out!</p>
+      <h2>Hire a DevOps Expert</h2>
+      <p>Ready to streamline your development and operations processes? Let's work together to build scalable, secure, and efficient systems. Connect with me through the following platforms:</p>
       <a href="mailto:your.email@example.com" class="contact-btn">Get in Touch</a>
     </div>
   </section>
+  
+  
+  <!-- Contact Section -->
+<section id="contact" class="contact">
+  <div class="container">
+    <h2>Hire a DevOps Expert</h2>
+    <p>
+      Ready to streamline your development and operations processes? Let's work together to build scalable, secure, and efficient systems. Connect with me through the following platforms:
+    </p>
+    <div class="contact-links">
+      <a href="mailto:your.email@example.com" class="contact-link">
+        <i class="fas fa-envelope"></i> Email
+      </a>
+      <a href="https://wa.me/yourwhatsapplink" class="contact-link" target="_blank">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+      <a href="https://linkedin.com/in/yourprofile" class="contact-link" target="_blank">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="https://github.com/yourgithubprofile" class="contact-link" target="_blank">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+      <a href="tel:+1234567890" class="contact-link">
+        <i class="fas fa-phone-alt"></i> Phone
+      </a>
+    </div>
+  </div>
+</section>
+  
+  
+
+  
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2024 Your Name. All rights reserved.</p>
+    <p><p>Made with ❤️ by <a href="#">Harry The DevOps Guy.</p>
   </footer>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
