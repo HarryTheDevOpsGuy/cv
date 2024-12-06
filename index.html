@@ -10,8 +10,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   
    <!--Font Awesome -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <!-- Bootstrap CSS -->
+  <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
   
   
   <!-- Custom CSS -->
@@ -76,10 +80,69 @@
       color: #fff;
       border-radius: 5px;
     }
+    
+    /* Carousel Styles */
+    .carousel {
+      position: relative;
+      overflow: hidden;
+    }
+    .carousel .carousel-inner img {
+      height: 500px;
+      object-fit: cover;
+      object-position: center;
+    }
+    .carousel-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+      z-index: 1;
+    }
+    .carousel-caption {
+      z-index: 2;
+      bottom: 40px;
+    }
+    .carousel-caption h5 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .carousel-caption p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    /* Carousel Navigation */
+    .carousel-control-prev,
+    .carousel-control-next {
+      z-index: 3;
+    }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      padding: 10px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    
+    
+    
 
     /* Sections */
     section {
-      padding: 60px 0;
+      padding: 40px 0;
     }
 
     .section-title {
@@ -89,6 +152,8 @@
       text-align: center;
       margin-bottom: 40px;
     }
+    
+    
     
     /* About Section */
     section#about {
@@ -258,12 +323,10 @@
     .deployed-solution h4 {
       margin-top: 10px;
       font-size: 1.2em;
-      /*color: #2c3e50;*/
       color: #1abc9c;
     }
 
     .deployed-solution p {
-      /*color: #7f8c8d;*/
       color: #e0e0e0;
     }
     
@@ -274,59 +337,14 @@
     
 
     /* Experience Timeline */
-    .timeline {
-      position: relative;
-      list-style: none;
-      margin-left: 0;
+    .card {
+      --bs-card-bg : #1f1f1f;
+      --bs-card-title-color: #1abc9c;
+      --bs-card-subtitle-color: #e0e0e0;
+      --bs-card-color: #e0e0e0;
     }
-    .timeline:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      height: 100%;
-      width: 2px;
-      background-color: #1abc9c;
-      transform: translateX(-50%);
-    }
-    .timeline-item {
-      display: flex;
-      justify-content: flex-start;
-      position: relative;
-      margin-bottom: 50px;
-    }
-    .timeline-item-content {
-      width: 45%;
-      background-color: #1f1f1f;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      margin-left: 5%;
-      text-align: left;
-    }
-    .timeline-item-content.right {
-      margin-left: 50%;
-    }
-    .timeline-item-content .date {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #1abc9c;
-      margin-bottom: 15px;
-    }
-    .timeline-item-content h4 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #e0e0e0;
-      margin-bottom: 15px;
-    }
-    .timeline-item-content ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    .timeline-item-content ul li {
-      color: #e0e0e0;
-      margin-bottom: 10px;
-    }
+    
+    
 
     /* Contact */
     .contact {
@@ -384,29 +402,87 @@
 <body>
   <!-- Header -->
   <header>
-    <h1>DevOps Engineer Portfolio</h1>
+    <h1>Harry The DevOps Guy</h1> 
   </header>
 
   <!-- Navigation -->
-  <nav>
-    <ul>
-      
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#tools">Tools</a></li>
-      <li><a href="#deployed-solutions">Solutions</a></li>
-      <li><a href="#experience">Experience</a></li>
-      
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <h1 class="d-block d-lg-none" style="color: #1abc9c;" href="#">Hari Prasad</h1>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#tools">Tools</a></li>
+          <li><a href="#deployed-solutions">Solutions</a></li>
+          <li><a href="#experience">Experience</a></li>
+          
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div> 
   </nav>
+  
 
    <!--Home Section -->
-  <section id="home" class="container text-center">
-    <h2>Welcome to My DevOps Portfolio</h2>
-    <p>Explore my skills, tools, and experience in DevOps engineering</p>
+  <!--<section id="home" class="container text-center">-->
+  <!--  <h2>Welcome to My DevOps Portfolio</h2>-->
+  <!--  <p>Explore my skills, tools, and experience in DevOps engineering</p>-->
+  <!--</section>-->
+  
+  
+  <!-- Carousel Section -->
+  <section id="home" class="mt-4">
+    <div class="container text-center">
+      <h2>Welcome to My DevOps Portfolio</h2>
+      <p>Explore my skills, tools, and experience in DevOps engineering</p>
+    </div>
+    <div id="enhancedCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+          <div class="carousel-overlay"></div>
+          <img src="https://via.placeholder.com/1200x1200" class="d-block w-100" alt="Slide 1">
+          <div class="carousel-caption text-start">
+            <h5>Welcome to My Portfolio</h5>
+            <p>Explore my expertise in DevOps and Cloud Engineering.</p>
+          </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+          <div class="carousel-overlay"></div>
+          <img src="https://via.placeholder.com/1200x400/1abc9c/fff" class="d-block w-100" alt="Slide 2">
+          <div class="carousel-caption text-center">
+            <h5>Cloud Solutions</h5>
+            <p>Building scalable cloud infrastructures with best practices.</p>
+          </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+          <div class="carousel-overlay"></div>
+          <img src="https://via.placeholder.com/1200x400/333/fff" class="d-block w-100" alt="Slide 3">
+          <div class="carousel-caption text-end">
+            <h5>Automation & CI/CD</h5>
+            <p>Streamline processes with advanced automation and tools.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Carousel Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#enhancedCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#enhancedCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
   </section>
+  
   
   
     <!-- About Section -->
@@ -589,36 +665,64 @@
     </div>
   </section>
   
-  
+<!-- Experience Section -->
+<section id="experience" class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-4">
+        <h2 class="section-title">My Experience</h2>
+        <p class="lead">Here are some of the experiences I have gained throughout my career.</p>
+      </div>
+    </div>
+    <div class="row">
+      <!-- Experience Card 1 -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card ">
+          <div class="card-body">
+            <h5 class="card-title">Sr. Devops Lead</h5>
+            <h6 class="card-subtitle mb-2">Paytm</h6>
+            <p class="card-text">Implemented zero-downtime blue-green deployment with Jenkins and AWS. Managed IaC with Terraform, Ansible, and Packer. Built AMIs, configured monitoring, led a DevOps team, managed EKS with ArgoCD, and used Karpenter for cost-efficient node management.</p>
+            <ul class="list-inline">
+              <li class="list-inline-item"><strong>Duration:</strong> 2020 - Present</li>
+              <li class="list-inline-item"><strong>Location:</strong> Remote</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Experience Card 2 -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body">
+            <h5 class="card-title">Frontend Developer</h5>
+            <h6 class="card-subtitle mb-2">XYZ Solutions</h6>
+            <p class="card-text">Developed responsive web applications using Angular and Bootstrap. Focused on improving the user experience and performance of the applications.</p>
+            <ul class="list-inline">
+              <li class="list-inline-item"><strong>Duration:</strong> 2018 - 2020</li>
+              <li class="list-inline-item"><strong>Location:</strong> San Francisco, CA</li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
-  <!-- Experience Section -->
-  <section id="experience" class="container">
-    <h2 class="section-title">Experience</h2>
-    <ul class="timeline">
-      <li class="timeline-item">
-        <div class="timeline-item-content left">
-          <div class="date">2020 - Present</div>
-          <h4>DevOps Engineer - ABC Corp</h4>
-          <ul>
-            <li>Automated CI/CD pipelines using Jenkins, Docker, and Kubernetes.</li>
-            <li>Deployed and managed AWS infrastructure using Terraform and Ansible.</li>
-          </ul>
+      <!-- Experience Card 3 -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body">
+            <h5 class="card-title">Junior Developer</h5>
+            <h6 class="card-subtitle mb-2">Tech Innovators</h6>
+            <p class="card-text">Assisted in the development of enterprise-level applications using Python, Django, and MySQL. Contributed to bug fixes, new feature implementations, and client communication.</p>
+            <ul class="list-inline">
+              <li class="list-inline-item"><strong>Duration:</strong> 2017 - 2018</li>
+              <li class="list-inline-item"><strong>Location:</strong> New York, NY</li>
+            </ul>
+          </div>
         </div>
-        <div class="arrow">→</div>
-      </li>
-      <li class="timeline-item">
-        <div class="timeline-item-content right">
-          <div class="date">2018 - 2020</div>
-          <h4>Systems Administrator - XYZ Ltd</h4>
-          <ul>
-            <li>Managed Linux systems, security patches, and updates.</li>
-            <li>Optimized cloud infrastructure for scalability and cost reduction.</li>
-          </ul>
-        </div>
-        <div class="arrow">→</div>
-      </li>
-    </ul>
-  </section>
+      </div>
+    </div>
+  </div>
+</section>
+
 
   <!-- Contact Section -->
   <section id="contact" class="contact">
