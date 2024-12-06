@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevOps Engineer Portfolio</title>
+  <link rel="icon" href="assets/images/logo.png" type="image/png">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #e0e0e0;
+      background-color: #121212;
+      line-height: 1.6;
+      scroll-behavior: smooth; /* Enable smooth scrolling */
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      background-color: #1f1f1f;
+      padding: 20px 0;
+      text-align: center;
+    }
+    header h1 {
+      color: #1abc9c;
+      font-size: 3rem;
+      font-weight: 600;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: #222;
+      padding: 15px 0;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+    }
+    nav ul li {
+      margin: 0 20px;
+    }
+    nav ul li a {
+      color: #e0e0e0;
+      font-size: 1.2rem;
+      font-weight: 500;
+      padding: 10px 20px;
+    }
+    nav ul li a:hover {
+      background-color: #1abc9c;
+      color: #fff;
+      border-radius: 5px;
+    }
+
+    /* Sections */
+    section {
+      padding: 60px 0;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #1abc9c;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    /* Skills */
+    .skills {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .skill {
+      background-color: #1f1f1f;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      flex: 1 1 200px;
+      max-width: 200px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform */
+    }
+    .skill:hover {
+      transform: scale(1.1); /* Scale up the element */
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); /* Increase shadow on hover */
+    }
+    .skill i {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #1abc9c;
+    }
+    .skill-title {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #e0e0e0;
+    }
+
+    /* Tools */
+    .tools {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .tool {
+      background-color: #1f1f1f;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      flex: 1 1 200px;
+      max-width: 200px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform */
+    }
+    .tool:hover {
+      transform: scale(1.1); /* Scale up the element */
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); /* Increase shadow on hover */
+    }
+    .tool i {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #1abc9c;
+    }
+    .tool-title {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #e0e0e0;
+    }
+
+    /* Developed Tools */
+    .developed-tools {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+    .developed-tool {
+      background-color: #1f1f1f;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      flex: 1 1 250px;
+      max-width: 250px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform */
+    }
+    .developed-tool:hover {
+      transform: scale(1.1); /* Scale up the element */
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); /* Increase shadow on hover */
+    }
+    .developed-tool h4 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #1abc9c;
+      margin-bottom: 20px;
+    }
+    .developed-tool p {
+      font-size: 1.2rem;
+      color: #e0e0e0;
+      margin-bottom: 20px;
+    }
+
+    /* Experience Timeline */
+    .timeline {
+      position: relative;
+      list-style: none;
+      margin-left: 0;
+    }
+    .timeline:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      height: 100%;
+      width: 2px;
+      background-color: #1abc9c;
+      transform: translateX(-50%);
+    }
+    .timeline-item {
+      display: flex;
+      justify-content: flex-start;
+      position: relative;
+      margin-bottom: 50px;
+    }
+    .timeline-item-content {
+      width: 45%;
+      background-color: #1f1f1f;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      margin-left: 5%;
+      text-align: left;
+    }
+    .timeline-item-content.right {
+      margin-left: 50%;
+    }
+    .timeline-item-content .date {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1abc9c;
+      margin-bottom: 15px;
+    }
+    .timeline-item-content h4 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #e0e0e0;
+      margin-bottom: 15px;
+    }
+    .timeline-item-content ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .timeline-item-content ul li {
+      color: #e0e0e0;
+      margin-bottom: 10px;
+    }
+
+    /* Contact */
+    .contact {
+      background-color: #1abc9c;
+      color: #fff;
+      padding: 60px 0;
+      text-align: center;
+    }
+    .contact h2 {
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+    .contact p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+    .contact-btn {
+      font-size: 1.3rem;
+      padding: 15px 30px;
+      background-color: #fff;
+      color: #1abc9c;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    .contact-btn:hover {
+      background-color: #1abc9c;
+      color: #fff;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #222;
+      color: #e0e0e0;
+      text-align: center;
+      padding: 20px;
+    }
+    footer p {
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>DevOps Engineer Portfolio</h1>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#tools">Tools</a></li>
+      <li><a href="#developed-tools">Developed Tools</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home">
+    <div class="container">
+      <h2 class="section-title">Welcome to My Portfolio</h2>
+      <p>Hi, I'm a passionate DevOps engineer with expertise in cloud automation, CI/CD, and infrastructure management.</p>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills">
+        <div class="skill">
+          <i class="fab fa-docker"></i>
+          <p class="skill-title">Docker</p>
+        </div>
+        <div class="skill">
+          <i class="fab fa-aws"></i>
+          <p class="skill-title">AWS</p>
+        </div>
+        <div class="skill">
+          <i class="fab fa-jenkins"></i>
+          <p class="skill-title">Jenkins</p>
+        </div>
+        <div class="skill">
+          <i class="fab fa-gitlab"></i>
+          <p class="skill-title">GitLab</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools Section -->
+  <section id="tools">
+    <div class="container">
+      <h2 class="section-title">Tools I Use</h2>
+      <div class="tools">
+        <div class="tool">
+          <i class="fas fa-cogs"></i>
+          <p class="tool-title">Terraform</p>
+        </div>
+        <div class="tool">
+          <i class="fas fa-cloud"></i>
+          <p class="tool-title">AWS Lambda</p>
+        </div>
+        <div class="tool">
+          <i class="fas fa-code"></i>
+          <p class="tool-title">Ansible</p>
+        </div>
+        <div class="tool">
+          <i class="fas fa-server"></i>
+          <p class="tool-title">Kubernetes</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Developed Tools Section -->
+  <section id="developed-tools">
+    <div class="container">
+      <h2 class="section-title">Developed Tools</h2>
+      <div class="developed-tools">
+        <div class="developed-tool">
+          <h4>CI/CD Pipeline</h4>
+          <p>A custom CI/CD pipeline for automated deployment and scaling using Jenkins and Kubernetes.</p>
+        </div>
+        <div class="developed-tool">
+          <h4>CloudFormation Scripts</h4>
+          <p>CloudFormation templates for provisioning and managing AWS resources in a repeatable manner.</p>
+        </div>
+        <div class="developed-tool">
+          <h4>Monitoring System</h4>
+          <p>Integrated monitoring system using Prometheus and Grafana for infrastructure health tracking.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+      <ul class="timeline">
+        <li class="timeline-item">
+          <div class="timeline-item-content">
+            <p class="date">Jan 2021 - Present</p>
+            <h4>Senior DevOps Engineer</h4>
+            <ul>
+              <li>Implemented CI/CD pipelines with Jenkins, Docker, and Kubernetes</li>
+              <li>Automated infrastructure provisioning using Terraform</li>
+            </ul>
+          </div>
+        </li>
+        <li class="timeline-item right">
+          <div class="timeline-item-content">
+            <p class="date">Jan 2019 - Dec 2020</p>
+            <h4>DevOps Engineer</h4>
+            <ul>
+              <li>Managed cloud infrastructure with AWS and Terraform</li>
+              <li>Configured Kubernetes clusters for microservices deployment</li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="contact">
+      <h2>Contact Me</h2>
+      <p>If you'd like to work together or have any questions, feel free to reach out!</p>
+      <a href="mailto:devopsengineer@example.com" class="contact-btn">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 DevOps Engineer Portfolio | All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>

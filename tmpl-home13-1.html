@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Portfolio</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <!-- Icon8 Icons -->
+    <link rel="stylesheet" href="https://cdn.icon8.com/icons8-collections/css/icon8.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #121212;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background-color: #333;
+        }
+        .navbar-brand, .nav-link {
+            color: #fff !important;
+        }
+        .navbar-dark .navbar-toggler-icon {
+            background-color: #fff;
+        }
+        .carousel-item img {
+            height: 80vh;
+            object-fit: cover;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+        .service-card, .expertise-card {
+            background: #333;
+            padding: 30px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        .service-card:hover, .expertise-card:hover {
+            transform: scale(1.05);
+        }
+        .service-card i, .expertise-card i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .hire-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            transition: background-color 0.3s ease;
+        }
+        .hire-btn:hover {
+            background-color: #0056b3;
+        }
+        .contact-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+        }
+        .contact-btn:hover {
+            background-color: #218838;
+        }
+        .slider {
+            background-color: #333;
+            padding: 40px 0;
+        }
+        .slider h2 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        .slider .carousel-item {
+            background-color: #444;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .slider .carousel-item img {
+            border-radius: 10px;
+        }
+        .card-deployed {
+            background-color: #444;
+            border-radius: 10px;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .card-deployed h4 {
+            margin-bottom: 20px;
+        }
+        .dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+        .light-mode {
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+<body class="dark-mode">
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">DevOps Portfolio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#expertise">Expertise</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#solutions">Deployed Solutions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#hire">Hire Me</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="text-center py-5">
+    <div class="container">
+        <h1 class="display-4">DevOps Engineer Portfolio</h1>
+        <p class="lead">Building Scalable and Reliable Solutions</p>
+        <a href="#services" class="btn btn-primary">Explore My Work</a>
+    </div>
+</section>
+
+<!-- Expertise Section -->
+<section id="expertise" class="py-5">
+    <div class="container">
+        <h2 class="section-title text-center">Expertise in DevOps Tools</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="expertise-card">
+                    <i class="fab fa-docker"></i>
+                    <h4>Docker</h4>
+                    <p>Containerization of applications for faster and scalable solutions.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="expertise-card">
+                    <i class="fab fa-kubernetes"></i>
+                    <h4>Kubernetes</h4>
+                    <p>Managing containers at scale with Kubernetes orchestration.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="expertise-card">
+                    <i class="fab fa-aws"></i>
+                    <h4>AWS</h4>
+                    <p>Building and maintaining cloud infrastructure on AWS.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="bg-dark py-5">
+    <div class="container">
+        <h2 class="section-title text-center text-white">DevOps Services</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="service-card">
+                    <i class="fas fa-cloud"></i>
+                    <h4>Cloud Infrastructure</h4>
+                    <p>Designing cloud architectures for high availability and scalability.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-card">
+                    <i class="fas fa-cogs"></i>
+                    <h4>CI/CD Automation</h4>
+                    <p>Automating continuous integration and deployment pipelines.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Security</h4>
+                    <p>Implementing security best practices for secure cloud infrastructure.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Deployed Solutions Section -->
+<section id="solutions" class="py-5">
+    <div class="container">
+        <h2 class="section-title text-center">Deployed Solutions</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card-deployed">
+                    <h4>Microservices Architecture</h4>
+                    <p>Successfully deployed microservices on Kubernetes with AWS EKS.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card-deployed">
+                    <h4>Automated Deployment</h4>
+                    <p>Implemented CI/CD pipelines using Jenkins and Docker for seamless deployments.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card-deployed">
+                    <h4>Cloud Security</h4>
+                    <p>Deployed secure cloud infrastructure using AWS with IAM, VPC, and CloudWatch.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Hire Me Section -->
+<section id="hire" class="text-center py-5 bg-dark">
+    <div class="container">
+        <h2 class="section-title text-white">Hire a DevOps Expert</h2>
+        <p>Let’s take your project to the next level with modern DevOps solutions.</p>
+        <a href="#contact" class="hire-btn">Contact Me</a>
+    </div>
+</section>
+
+<!-- Slider Section -->
+<section id="slider" class="slider">
+    <div class="container">
+        <h2 class="text-white text-center">Client Feedback</h2>
+        <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <p>"Incredible service and expertise! Helped us scale our applications." - Client A</p>
+                </div>
+                <div class="carousel-item">
+                    <p>"Exceptional DevOps skills. Our deployments are faster and more reliable." - Client B</p>
+                </div>
+                <div class="carousel-item">
+                    <p>"Highly recommended for any DevOps work. The automation was a game-changer." - Client C</p>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="text-center py-5 bg-dark">
+    <div class="container">
+        <h2 class="section-title text-white">Contact Me</h2>
+        <p>Let’s discuss your next DevOps project!</p>
+        <a href="mailto:devops@example.com" class="contact-btn">Get in Touch</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark py-3">
+    <div class="container text-center">
+        <p class="text-white mb-0">© 2024 DevOps Portfolio | All Rights Reserved</p>
+    </div>
+</footer>
+
+<!-- Bootstrap 5 JS and Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Dark/Light Mode Toggle -->
+<script>
+    document.getElementById('theme-toggle').addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+        document.body.classList.toggle('light-mode');
+    });
+</script>
+</body>
+</html>

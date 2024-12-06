@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DevOps Portfolio</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        .hero-section {
+            background: #0d6efd;
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .carousel-inner img {
+            max-height: 500px;
+            object-fit: cover;
+        }
+        .service-icon {
+            font-size: 50px;
+            color: #0d6efd;
+        }
+        .service-card {
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        .contact-btn, .hire-btn {
+            background-color: #0d6efd;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .contact-btn:hover, .hire-btn:hover {
+            background-color: #004aad;
+        }
+        .about-img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .footer {
+            background-color: #0d6efd;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .section-title {
+            margin-bottom: 30px;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="0" class="scrollspy-example">
+    <!-- Header Section -->
+    <header id="home" class="hero-section">
+        <div>
+            <h1>Welcome to My DevOps Portfolio</h1>
+            <p>Bringing Automation, Scalability, and Security to Your Infrastructure</p>
+            <a href="#hire" class="btn btn-light hire-btn">Hire Me</a>
+        </div>
+    </header>
+
+    <!-- Carousel Slides Section -->
+    <section id="carousel" class="container mt-5">
+        <h2 class="section-title">Recent Projects</h2>
+        <div id="portfolioCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="Project 1">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Cloud Infrastructure Automation</h5>
+                        <p>Automated cloud infrastructure provisioning using Terraform and AWS</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="Project 2">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>CI/CD Pipeline Setup</h5>
+                        <p>Implemented Jenkins CI/CD pipeline for continuous delivery</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="Project 3">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Monitoring & Alerts with Prometheus</h5>
+                        <p>Set up Prometheus and Grafana for proactive monitoring and alerting</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- DevOps Services Section -->
+    <section id="services" class="container mt-5">
+        <h2 class="section-title">DevOps Services</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card service-card text-center">
+                    <i class="fas fa-cloud service-icon"></i>
+                    <h4 class="mt-3">Cloud Infrastructure</h4>
+                    <p>Manage cloud infrastructure with best practices in AWS, GCP, and Azure</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card service-card text-center">
+                    <i class="fas fa-cogs service-icon"></i>
+                    <h4 class="mt-3">CI/CD Automation</h4>
+                    <p>Automate and streamline your continuous integration and delivery pipelines</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card service-card text-center">
+                    <i class="fas fa-shield-alt service-icon"></i>
+                    <h4 class="mt-3">Security & Compliance</h4>
+                    <p>Ensure your infrastructure is secure and compliant with industry standards</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise in DevOps Tools Section -->
+    <section id="expertise" class="container mt-5">
+        <h2 class="section-title">Expertise in DevOps Tools & Technologies</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <ul>
+                    <li>AWS, GCP, Azure</li>
+                    <li>Docker, Kubernetes</li>
+                    <li>Jenkins, GitLab CI</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul>
+                    <li>Terraform, Ansible</li>
+                    <li>Prometheus, Grafana</li>
+                    <li>Helm, Kubernetes Operators</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul>
+                    <li>Git, GitHub Actions</li>
+                    <li>Chef, Puppet</li>
+                    <li>Python, Bash, Groovy</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Build & Delivered Solutions Section -->
+    <section id="solutions" class="container mt-5">
+        <h2 class="section-title">Build & Delivered Solutions</h2>
+        <p>Over the years, I've delivered scalable, secure, and automated solutions for numerous companies, from cloud migrations to building robust CI/CD pipelines, all while focusing on efficiency and reliability.</p>
+    </section>
+
+    <!-- Hire a DevOps Expert Section -->
+    <section id="hire" class="container mt-5 text-center">
+        <h2>Ready to Scale with a DevOps Expert?</h2>
+        <p>"Automating infrastructure, streamlining operations, and ensuring security — let’s take your business to the next level."</p>
+        <a href="#contact" class="btn btn-primary hire-btn">Hire Me</a>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container mt-5">
+        <h2 class="section-title">Contact</h2>
+        <p>If you have any questions or need assistance with your DevOps needs, feel free to reach out!</p>
+        <a href="mailto:your-email@example.com" class="btn btn-primary contact-btn">Email Me</a>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="container mt-5 text-center">
+        <h2 class="section-title">About Me</h2>
+        <div>
+            <img src="https://via.placeholder.com/300x300" alt="Your Photo" class="about-img mb-3">
+            <p>I’m a passionate DevOps engineer with over 10 years of experience in automation, cloud computing, and continuous integration. I thrive in creating efficient, scalable, and secure infrastructure solutions for modern applications.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 DevOps Portfolio | All Rights Reserved</p>
+    </footer>
+
+    <!-- Bootstrap 5 & jQuery JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Add smooth scroll effect for anchor links
+            $('a').on('click', function (e) {
+                if (this.hash !== '') {
+                    e.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
