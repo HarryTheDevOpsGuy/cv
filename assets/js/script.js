@@ -13,7 +13,7 @@ $(document).ready(function() {
 
     $('.select-btn').click(function() {
         const rawContent = $(this).closest('.carousel-item').find('.resume-body').clone();
-        rawContent.find('.select-btn').remove();
+        rawContent.find('.hide-code').remove();
         const resumeContent = rawContent.html();
         const resumeName = $(this).closest('.carousel-item').find('#name').text();
         const resumeId = 'resume-' + Date.now();
