@@ -12,3 +12,15 @@ title: "Blog"
     </li>
   {% endfor %}
 </ul>
+
+
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <small>
+        Published on {{ post.date | date: "%B %d, %Y" }} | Category: {{ post.categories | join: ", " }}
+      </small>
+    </li>
+  {% endfor %}
+</ul>
