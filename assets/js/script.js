@@ -51,8 +51,8 @@ $(document).ready(function() {
     // Load saved resumes
     function loadSavedResumes() {
         const savedResumes = localStorage.getItem('savedResumes') ? JSON.parse(localStorage.getItem('savedResumes')) : [];
-        const resumeListElement = document.getElementById("resume-list");
-        resumeListElement.innerHTML = "";
+        const resumesData = document.getElementById("saved-resumes");
+        resumesData.innerHTML = "";
         savedResumes.forEach((resume, index) => {
             divData = `
                 <div class="deployed-solution">
@@ -63,7 +63,7 @@ $(document).ready(function() {
                     <i class="fas fa-trash action-btn" onclick="deleteResume('${index}')" title="Delete"></i>
                 </div>
             `;
-            resumeListElement.append(divData);
+            resumesData.append(divData);
         });
     }
 
