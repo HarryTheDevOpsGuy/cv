@@ -127,6 +127,23 @@ h1, h2, h3 {
   text-align: center;
 }
 
+.post-navigation {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 0;
+}
+
+.previous-post, .next-post {
+  font-weight: bold;
+  text-decoration: none;
+  color: #1abc9c;
+}
+
+.previous-post:hover, .next-post:hover {
+  text-decoration: underline;
+}
+
+
 
 
 /* Section */
