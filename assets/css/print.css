@@ -11,13 +11,15 @@
       top: 0;
       /* width: 100%; */
       margin: auto;
+      max-width: auto;
+      max-height: auto;
   }
 
-  #resume { margin: auto; max-width: auto; max-height: auto; }
-  .resume-body {
+  /* #resume { margin: auto; max-width: auto; max-height: auto; } */
+  /* .resume-body {
     max-width: auto;
     max-height: auto;
-  }
+  } */
 
 }
 
