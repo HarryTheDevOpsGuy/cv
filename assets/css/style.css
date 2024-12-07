@@ -17,20 +17,16 @@
   margin: auto; 
   max-width: 21cm; 
   /* max-height: 29.7cm; */
-  padding: 10px;
-  /* overflow: hidden;  */
+  padding: 10px; 
   font-size: 100%;  
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
-  /* display: flex; */
-  /* flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px; */
 }
 .resume-body .list-group {
   --bs-border-width: 0px
+}
+
+.resume-editor-options {
+  position: sticky;
 }
 
 
