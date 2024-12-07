@@ -9,14 +9,15 @@
       position: absolute; /* Position it for printing */
       left: 0;
       top: 0;
-      width: 100%;
+      /* width: 100%; */
       margin: auto;
   }
 
   #resume { margin: auto; max-width: auto; max-height: auto; }
-  /* .resume-body{
-    
-  } */
+  .resume-body {
+    max-width: auto;
+    max-height: auto;
+  }
 
 }
 
