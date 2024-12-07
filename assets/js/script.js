@@ -40,9 +40,9 @@ $(document).ready(function() {
         
         const existingIndex = savedResumes.findIndex(resume => resume.id === resumeId);
         if (existingIndex !== -1) {
-            savedResumes[existingIndex] = { id: resumeId, name: resumeName, title: resumeTitle, content: resumeContent };
+            savedResumes[existingIndex] = { id: resumeId, name: resumeName, title: resumeTitle, content: resumeContent , url: window.location.href };
         } else {
-            savedResumes.push({ id: resumeId, name: resumeName, title: resumeTitle, content: resumeContent });
+            savedResumes.push({ id: resumeId, name: resumeName, title: resumeTitle, content: resumeContent, url: window.location.href });
         }
 
         localStorage.setItem('savedResumes', JSON.stringify(savedResumes));
