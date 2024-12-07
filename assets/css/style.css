@@ -127,7 +127,7 @@ h1, h2, h3 {
   text-align: center;
 }
 
-.post-navigation {
+/* .post-navigation {
   display: flex;
   justify-content: space-between;
   padding: 1em 0;
@@ -141,7 +141,7 @@ h1, h2, h3 {
 
 .previous-post:hover, .next-post:hover {
   text-decoration: underline;
-}
+} */
 
 
 

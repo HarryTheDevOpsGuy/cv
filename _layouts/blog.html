@@ -4,9 +4,6 @@ title: "Blog"
 ---
 
   <!-- About Section -->
-
-  {{ page }}
-
   <section id="blog" class="blog-main mt-5">
     <h2 class="blog-title">{{ page.title }}</h2>
     <p class="blog-description">{{ page.description }}</p>
@@ -16,18 +13,20 @@ title: "Blog"
       </div>
     </div>
 
-    <div class="post-navigation">
+    <div class="contact-links">
       {% if page.previous %}
-        <a href="{{ page.previous.url | relative_url }}" class="prev-post">← {{ page.previous.title }}</a>
+        <a class="contact-link" href="{{ page.previous.url | relative_url }}" rel="prev">
+          &laquo; Previous: {{ page.previous.title }}
+        </a>
       {% endif %}
-    
+      
       {% if page.next %}
-        <a href="{{ page.next.url | relative_url }}" class="next-post">{{ page.next.title }} →</a>
+        <a class="contact-link" href="{{ page.next.url | relative_url }}" rel="next">
+          Next: {{ page.next.title }} &raquo;
+        </a>
       {% endif %}
     </div>
   </section>
-
-
 
   
   
