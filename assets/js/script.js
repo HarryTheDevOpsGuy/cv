@@ -54,19 +54,21 @@ $(document).ready(function() {
         const resumeListElement = document.getElementById("resume-list");
         resumeListElement.innerHTML = "";
         savedResumes.forEach((resume, index) => {
-            const listItem = document.createElement('li');
-            listItem.className = `list-group-item d-flex justify-content-between align-items-center`;
-            listItem.innerHTML = `
-                ${resume.name}
-                <div>
+            // const listItem = document.createElement('li');
+            // listItem.className = `list-group-item d-flex justify-content-between align-items-center`;
+            divData = "";
+            divData.innerHTML = `
+                <div class="deployed-solution">
+                    <i class="fab fa-aws"></i>
+                    <h4>${resume.name}</h4>
+                    <p>DevOps Engineer</p>
                     <i class="fas fa-edit action-btn" onclick="editResume('${index}')" title="Edit"></i>
                     <i class="fas fa-trash action-btn" onclick="deleteResume('${index}')" title="Delete"></i>
                 </div>
             `;
-            resumeListElement.appendChild(listItem);
+            resumeListElement.appendChild(divData);
         });
     }
-
 
     // Edit resume
     window.editResume = function(index) {
