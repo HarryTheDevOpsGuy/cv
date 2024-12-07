@@ -11,7 +11,7 @@ h1, h2, h3 {
   font-weight: bold;
 }
 
-.resume-section {
+.resume-section, .blog-main {
   background-color: #1f1f1f;
   padding: 5px;
   border-radius: 8px;
@@ -27,6 +27,7 @@ h1, h2, h3 {
   font-size: 100%;  
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .resume-body .list-group {
   --bs-border-width: 0px
 }
