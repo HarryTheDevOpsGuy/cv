@@ -21,14 +21,16 @@
   overflow: hidden; 
   font-size: 80%;  
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  --bs-border-width: 0px
+
   /* display: flex; */
   /* flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 20px;
   padding: 20px; */
-
+}
+.resume-body .list-group {
+  --bs-border-width: 0px
 }
 
 
