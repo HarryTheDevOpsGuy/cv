@@ -107,7 +107,14 @@ h1, h2, h3 {
 
 /* blog */
 .blog-main {  }
-.blog-content { }
+
+.blog-content {
+  background-color: #323232;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
 .blog-title {
   font-size: 2.0rem;
   font-weight: 600;
