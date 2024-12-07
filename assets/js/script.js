@@ -34,7 +34,7 @@ $(document).ready(function() {
     $('#saveResume').click(function() {
         const resumeContent = $('#resume').html();
         const resumeName = $('#name').text();
-        const resumeTitle = $('#title').text(); || 'cv-builder'
+        const resumeTitle = $('#title').text(); || 'cv-builder';
         const resumeId = $('#resume').attr('data-id') || 'resume-' + Date.now();
         const savedResumes = localStorage.getItem('savedResumes') ? JSON.parse(localStorage.getItem('savedResumes')) : [];
         
