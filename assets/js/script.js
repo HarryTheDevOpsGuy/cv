@@ -56,8 +56,7 @@ $(document).ready(function() {
         savedResumes.forEach((resume, index) => {
             // const listItem = document.createElement('li');
             // listItem.className = `list-group-item d-flex justify-content-between align-items-center`;
-            divData = "";
-            divData.innerHTML = `
+            divData = `
                 <div class="deployed-solution">
                     <i class="fab fa-aws"></i>
                     <h4>${resume.name}</h4>
@@ -66,7 +65,7 @@ $(document).ready(function() {
                     <i class="fas fa-trash action-btn" onclick="deleteResume('${index}')" title="Delete"></i>
                 </div>
             `;
-            resumeListElement.appendChild(divData);
+            resumeListElement.append(divData);
         });
     }
 
