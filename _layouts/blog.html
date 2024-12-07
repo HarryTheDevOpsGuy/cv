@@ -12,4 +12,21 @@ title: "Blog"
         {{ content }}
       </div>
     </div>
+
+    <div class="post-navigation">
+      {% if page.previous %}
+        <a class="previous-post" href="{{ page.previous.url }}" rel="prev">
+          &laquo; Previous: {{ page.previous.title }}
+        </a>
+      {% endif %}
+      
+      {% if page.next %}
+        <a class="next-post" href="{{ page.next.url }}" rel="next">
+          Next: {{ page.next.title }} &raquo;
+        </a>
+      {% endif %}
+    </div>
   </section>
+
+  
+  
