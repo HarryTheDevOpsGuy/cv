@@ -3,6 +3,18 @@
 
 
 $(document).ready(function() {
+
+    // Function to get the value of 'id' from the URL
+    function getParams(params) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(params);
+    }
+  
+
+
+  
+
+
     // Create new resume with unique ID
     $('#newResume').click(function() {
         const newResumeId = 'resume-' + Date.now();
@@ -60,7 +72,7 @@ $(document).ready(function() {
                     <i class="fab fa-aws"></i>
                     <h4>${resume.name}</h4>
                     <p>DevOps Engineer</p>
-                    <i class="fas fa-edit action-btn" onclick="editResume('${index}')" title="Edit"></i>
+                    <a href='${resume.url}?id=${index}'><i class="fas fa-edit action-btn" title="Edit"></i></a>
                     <i class="fas fa-trash action-btn" onclick="deleteResume('${index}')" title="Delete"></i>
                 </div>
             `;
@@ -76,6 +88,12 @@ $(document).ready(function() {
         $('#resume').attr('data-id', resume.id).html(resume.content);
         highlightActiveResume();
     };
+
+      // load resume for edit by query params
+        const resumeid = getParams('id');
+        if (resumeid) { 
+            editResume(resumeid); 
+        }
 
     // Delete resume
     window.deleteResume = function(index) {
