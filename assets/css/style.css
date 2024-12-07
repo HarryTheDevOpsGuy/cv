@@ -14,11 +14,11 @@
 .resume-body {
   background-color: #1f1f1f;
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 20px;
-  padding: 20px;
+  padding: 20px; */
 }
 
   #resume h1, #resume h2 { margin-bottom: 10px; }
