@@ -1,8 +1,11 @@
 title: "Harry's DevOps Portfolio"
 description: "A Senior DevOps Engineer with over 11 years of experience"
 url: "https://harrythedevopsguy.github.io"
-baseurl: "/cv/"
+baseurl: "/cv"
 author: Harry
+
+website: https://harrythedevopsguy.github.io
+basewebsite: /cv
 
 paginate: 5
 paginate_path: "/blog/page:num"
