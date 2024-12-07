@@ -3,68 +3,27 @@ layout: base
 title: "Blog"
 ---
 
-<header class="blog-header">
-  <h1>{{ site.title }}</h1>
-  <p>{{ site.description }}</p>
-</header>
-
-<main class="blog-content">
-  <h2>{{ page.title }}</h2>
-  <section class="blog-list">
-    {% for post in site.posts %}
-      <article class="blog-post">
-        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-        <p class="post-meta">
-          Published on {{ post.date | date: "%B %d, %Y" }}
-        </p>
-        <p class="post-excerpt">
-          {{ post.excerpt | strip_html | truncatewords: 30 }}
-        </p>
-        <a href="{{ post.url | relative_url }}" class="read-more">Read More</a>
-      </article>
-    {% endfor %}
-  </section>
-
-  <section class="blog-list">
-    {% for post in paginator.posts %}
-      <article class="blog-post">
-        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-        <p class="post-meta">
-          Published on {{ post.date | date: "%B %d, %Y" }}
-        </p>
-        <p class="post-excerpt">
-          {{ post.excerpt | strip_html | truncatewords: 30 }}
-        </p>
-        <a href="{{ post.url | relative_url }}" class="read-more">Read More</a>
-      </article>
-    {% endfor %}
-  </section>
-  
-  <div class="pagination">
-    {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path | relative_url }}">&laquo; Previous</a>
-    {% endif %}
-    {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_path | relative_url }}">Next &raquo;</a>
-    {% endif %}
-  </div>
-  
-
-
-
-</main>
-
-
-
-
-
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      <small>
-        Published on {{ post.date | date: "%B %d, %Y" }} | Category: {{ post.categories | join: ", " }}
-      </small>
-    </li>
+<section class="blog-list">
+  {% for post in paginator.posts %}
+    <article class="blog-post">
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      <p class="post-meta">
+        Published on {{ post.date | date: "%B %d, %Y" }}
+      </p>
+      <p class="post-excerpt">
+        {{ post.excerpt | strip_html | truncatewords: 30 }}
+      </p>
+      <a href="{{ post.url | relative_url }}" class="read-more">Read More</a>
+    </article>
   {% endfor %}
-</ul>
+</section>
+
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | relative_url }}">&laquo; Previous</a>
+  {% endif %}
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | relative_url }}">Next &raquo;</a>
+  {% endif %}
+</div>
+
