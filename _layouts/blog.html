@@ -3,27 +3,19 @@ layout: base
 title: "Blog"
 ---
 
-<section class="blog-list">
-  {% for post in paginator.posts %}
-    <article class="blog-post">
-      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-      <p class="post-meta">
-        Published on {{ post.date | date: "%B %d, %Y" }}
-      </p>
-      <p class="post-excerpt">
-        {{ post.excerpt | strip_html | truncatewords: 30 }}
-      </p>
-      <a href="{{ post.url | relative_url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
-</section>
-
-<div class="pagination">
-  {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | relative_url }}">&laquo; Previous</a>
-  {% endif %}
-  {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | relative_url }}">Next &raquo;</a>
-  {% endif %}
-</div>
+<main class="blog-content">
+  <div class="container">
+    <h2>{{ page.title }}</h2>
+    <div class="post-list">
+      {% for post in site.posts %}
+        <article class="post">
+          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          <p class="post-meta">Published on {{ post.date | date: "%B %d, %Y" }}</p>
+          <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+          <a href="{{ post.url | relative_url }}" class="read-more">Read More</a>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</main>
 
