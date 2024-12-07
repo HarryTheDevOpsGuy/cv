@@ -15,18 +15,16 @@ title: "Blog"
 
     <div class="post-navigation">
       {% if page.previous %}
-        <a class="previous-post" href="{{ page.previous.url }}" rel="prev">
-          &laquo; Previous: {{ page.previous.title }}
-        </a>
+        <a href="{{ page.previous.url | relative_url }}" class="prev-post">← {{ page.previous.title }}</a>
       {% endif %}
-      
+    
       {% if page.next %}
-        <a class="next-post" href="{{ page.next.url }}" rel="next">
-          Next: {{ page.next.title }} &raquo;
-        </a>
+        <a href="{{ page.next.url | relative_url }}" class="next-post">{{ page.next.title }} →</a>
       {% endif %}
     </div>
   </section>
+
+
 
   
   
