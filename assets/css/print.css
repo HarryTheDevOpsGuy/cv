@@ -24,6 +24,8 @@
 
   .resume-body {
     position: absolute; 
+    left: 0;
+    top: 0;
     max-width: auto;
     max-height: auto;
   }
