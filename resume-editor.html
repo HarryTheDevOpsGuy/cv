@@ -2,14 +2,15 @@
 layout: base
 title: "cv"
 ---
+
+<section id="deployed-solutions" class="container">
+    <h4 class="section-title">Saved Resumes</h4> 
+    <button class="btn btn-success" id="newResume"><i class="fas fa-plus"></i></button></h5>
+    <div id="saved-resumes" class="deployed-solutions"> </div>
+</section>
+
 <div class="container mt-3">
     <div class="row justify-content-md-center resume-section">
-        <div class="col col-lg-2">
-            <div class="mt-1">
-                <h5>Saved Resumes: <button class="btn btn-success" id="newResume"><i class="fas fa-plus"></i></button></h5>
-                <ul id="resume-list" class="list-group"></ul>
-            </div>
-        </div>
         <div class="col-md-auto">
             <div id="resume" contenteditable="true" class="resume-body printable-area border rounded mx-auto">
                 <h3 id="name" class="text-primary">Jane Smith</h3>
