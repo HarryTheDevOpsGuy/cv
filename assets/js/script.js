@@ -48,13 +48,14 @@ $(document).ready(function() {
         const resumeName = $('#name').text();
         const resumeTitle = $('#title').text() || 'cv-builder';
         const resumeId = $('#resume').attr('data-id') || 'resume-' + Date.now();
+        const resumeUrl = window.location.origin + window.location.pathname;
         const savedResumes = localStorage.getItem('savedResumes') ? JSON.parse(localStorage.getItem('savedResumes')) : [];
         
         const existingIndex = savedResumes.findIndex(resume => resume.id === resumeId);
         if (existingIndex !== -1) {
-            savedResumes[existingIndex] = { id: resumeId, name: resumeName, title: resumeTitle, content: resumeContent , url: window.location.href };
+            savedResumes[existingIndex] = { id: resumeId, name: resumeName, title: resumeTitle, content: resumeContent , url: resumeUrl };
         } else {
-            savedResumes.push({ id: resumeId, name: resumeName, title: resumeTitle, content: resumeContent, url: window.location.href });
+            savedResumes.push({ id: resumeId, name: resumeName, title: resumeTitle, content: resumeContent, url: resumeUrl });
         }
 
         localStorage.setItem('savedResumes', JSON.stringify(savedResumes));
