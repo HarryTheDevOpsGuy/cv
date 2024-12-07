@@ -11,17 +11,15 @@
     font-weight: bold;
   }
   
-  /* .navbar {
-    margin-bottom: 20px;
-  } */
-  
-  /* footer {
-    margin-top: 40px;
-  } */
-  
-  /* .section {
-    padding: 40px 0;
-  } */
+.resume-body {
+  background-color: #1f1f1f;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
 
   #resume h1, #resume h2 { margin-bottom: 10px; }
   #resume p { margin-bottom: 5px; }
