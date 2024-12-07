@@ -3,6 +3,13 @@ layout: base
 title: "Blog"
 ---
 
-<main  class="blog-main mt-5">
-  {{ content }}
-</main>
+  <!-- About Section -->
+  <section id="blog" class="blog-main mt-5">
+    <h2 class="section-title">{{ site.title }}</h2>
+    <p>{{ site.description }}</p>
+    <div class="container">
+      <div class="blog-content">
+        {{ content }}
+      </div>
+    </div>
+  </section>
