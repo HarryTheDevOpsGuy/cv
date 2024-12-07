@@ -26,7 +26,7 @@ $(document).ready(function() {
         }
 
         localStorage.setItem('savedResumes', JSON.stringify(savedResumes));
-        window.location.href = 'edit.html';
+        window.location.href = 'resume-editor.html';
     });
     
 
