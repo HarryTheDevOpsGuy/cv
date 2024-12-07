@@ -23,6 +23,7 @@
   }
 
   .resume-body {
+    position: absolute; 
     max-width: auto;
     max-height: auto;
   }
