@@ -54,8 +54,6 @@ $(document).ready(function() {
         const resumeListElement = document.getElementById("resume-list");
         resumeListElement.innerHTML = "";
         savedResumes.forEach((resume, index) => {
-            // const listItem = document.createElement('li');
-            // listItem.className = `list-group-item d-flex justify-content-between align-items-center`;
             divData = `
                 <div class="deployed-solution">
                     <i class="fab fa-aws"></i>
