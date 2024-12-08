@@ -86,7 +86,7 @@ $(document).ready(function() {
                     <i class="fab fa-aws"></i>
                     <h4>${resume.name} - ${defaultResume}</h4>
                     <p>${resume.title}</p>
-                    <a href='${resume.url}'><i class="fas fa-edit action-btn" title="Edit"></i></a>
+                    <i class="fas fa-edit action-btn" onclick="editResume('${index}')" title="Edit">
                     <i class="fas fa-trash action-btn" onclick="deleteResume('${index}')" title="Delete"></i>
                 </div>
             `;
@@ -143,8 +143,13 @@ $(document).ready(function() {
         const savedResumes = localStorage.getItem('savedResumes') ? JSON.parse(localStorage.getItem('savedResumes')) : [];
         const resume = savedResumes[index];
         markAsDefault(resume.id);
-        $('#resume').attr('data-id', resume.id).html(resume.content);
-        highlightActiveResume();
+        if (resume.url !== window.location.href ) {
+            window.location.href = resume.url;
+        } else { 
+            // Load resume content if URL matches 
+            $('#resume').attr('data-id', resume.id).html(resume.content);
+            highlightActiveResume();
+        }    
     };
 
       // load resume for edit by query params
