@@ -82,7 +82,7 @@ $(document).ready(function() {
                     <i class="fab fa-aws"></i>
                     <h4>${resume.name} - ${defaultResume}</h4>
                     <p>${resume.title}</p>
-                    <i class="fas fa-edit action-btn" onclick="editResume('${index}')" title="Edit">
+                    <i class="fas fa-edit action-btn" onclick="editResume('${index}')" title="Edit"></i>
                     <i class="fas fa-trash action-btn" onclick="deleteResume('${index}')" title="Delete"></i>
                 </div>
             `;
