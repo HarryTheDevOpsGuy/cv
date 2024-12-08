@@ -79,12 +79,12 @@ $(document).ready(function() {
         $('#saved-resumes').empty();
     
         savedResumes.forEach((resume, index) => {           
-            const defaultResume = resume.default ? ' (Default)' : '';
+            // const defaultResume = resume.default ? ' (Default)' : '';
             const defaultResumeClass =  resume.default ? 'default-resume' : '';             
             const resumeHtml = `
                 <div class="saved-resume ${defaultResumeClass}">
                     <img height="150" src="/cv/assets/img/logo.png" alt="Resume-Logo"/>
-                    <h4>${resume.name} - ${defaultResume}</h4>
+                    <h4>${resume.name}</h4>
                     <p>${resume.title}</p>
                     <i class="fas fa-edit action-btn" onclick="editResume('${index}')" title="Edit"></i>
                     <i class="fas fa-trash action-btn" onclick="deleteResume('${index}')" title="Delete"></i>
@@ -92,7 +92,7 @@ $(document).ready(function() {
             `;
 
             $('#saved-resumes').append(resumeHtml);
-            
+
             //  To load default resume in editor 
             if (resume.url === window.location.href && resume.default ) {
                 $('#resume').attr('data-id', resume.id).html(resume.content);
