@@ -60,9 +60,9 @@ $(document).ready(function() {
     
         localStorage.setItem('savedResumes', JSON.stringify(savedResumes));
 
-        markAsDefault(resumeId);
-        loadSavedResumes();
-        editResume(existingIndex);
+        // markAsDefault(resumeId);
+        // loadSavedResumes();
+        // editResume(existingIndex);
         
     });
     
