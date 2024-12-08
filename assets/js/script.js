@@ -143,10 +143,10 @@ $(document).ready(function() {
     };
 
       // load resume for edit by query params
-        const resumeid = getParams('id');
-        if (resumeid) { 
-            editResume(resumeid); 
-        }
+        // const resumeid = getParams('id');
+        // if (resumeid) { 
+        //     editResume(resumeid); 
+        // }
 
     // Delete resume
     window.deleteResume = function(index) {
