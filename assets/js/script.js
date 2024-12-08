@@ -92,7 +92,7 @@ $(document).ready(function() {
             `;
 
             $('#saved-resumes').append(resumeHtml);
-
+            
             //  To load default resume in editor 
             if (resume.url === window.location.href && resume.default ) {
                 $('#resume').attr('data-id', resume.id).html(resume.content);
