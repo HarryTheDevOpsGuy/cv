@@ -95,6 +95,7 @@ $(document).ready(function() {
             //  To load default resume in editor 
             if (resume.url === window.location.href && resume.default ) {
                 $('#resume').attr('data-id', resume.id).html(resume.content);
+                $('#resume').attr('data-id', resume.id).addClass('default-resume');
             }
 
         }); 
