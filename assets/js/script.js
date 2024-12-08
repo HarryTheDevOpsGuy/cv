@@ -71,15 +71,16 @@ $(document).ready(function() {
 
     // load resume in saved list on ui 
     function loadSavedResumes() {
-        const savedResumes = JSON.parse(localStorage.getItem('savedResumes')) || [];
+        // const savedResumes = JSON.parse(localStorage.getItem('savedResumes')) || [];
+        const savedResumes = localStorage.getItem('savedResumes') ? JSON.parse(localStorage.getItem('savedResumes')) : [];
         $('#saved-resumes').empty();
     
         savedResumes.forEach(resume => {
-            const defaultText = resume.default ? ' (Default)' : '';
+            const defaultResume = resume.default ? ' (Default)' : '';
             const resumeHtml = `
                 <div class="deployed-solution">
                     <i class="fab fa-aws"></i>
-                    <h4>${resume.name}</h4>
+                    <h4>${resume.name} - ${defaultResume}</h4>
                     <p>${resume.title}</p>
                     <a href='${resume.url}?id=${index}'><i class="fas fa-edit action-btn" title="Edit"></i></a>
                     <i class="fas fa-trash action-btn" onclick="deleteResume('${index}')" title="Delete"></i>
