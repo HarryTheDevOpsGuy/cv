@@ -91,48 +91,6 @@ $(document).ready(function() {
     }
     
     
-    
-
-    // Save resume
-    // $('#saveResume').click(function() {
-    //     const resumeContent = $('#resume').html();
-    //     const resumeName = $('#name').text();
-    //     const resumeTitle = $('#title').text() || 'cv-builder';
-    //     const resumeId = $('#resume').attr('data-id') || 'resume-' + Date.now();
-    //     const resumeUrl = window.location.origin + window.location.pathname;
-    //     const savedResumes = localStorage.getItem('savedResumes') ? JSON.parse(localStorage.getItem('savedResumes')) : [];
-        
-    //     const existingIndex = savedResumes.findIndex(resume => resume.id === resumeId);
-    //     if (existingIndex !== -1) {
-    //         savedResumes[existingIndex] = { id: resumeId, name: resumeName, title: resumeTitle, content: resumeContent , url: resumeUrl };
-    //     } else {
-    //         savedResumes.push({ id: resumeId, name: resumeName, title: resumeTitle, content: resumeContent, url: resumeUrl });
-    //     }
-
-    //     localStorage.setItem('savedResumes', JSON.stringify(savedResumes));
-    //     loadSavedResumes();
-    // });
-
-    // Load saved resumes
-    // function loadSavedResumes() {
-    //     const savedResumes = localStorage.getItem('savedResumes') ? JSON.parse(localStorage.getItem('savedResumes')) : [];
-    //     const resumesData = document.getElementById("saved-resumes");
-    //     // resumesData.innerHTML = "";
-    //     savedResumes.forEach((resume, index) => {
-    //         const defaultResume = resume.default;
-    //         divData = `
-    //             <div class="deployed-solution">
-    //                 <i class="fab fa-aws"></i>
-    //                 <h4>${resume.name}</h4>
-    //                 <p>${resume.title}</p>
-    //                 <a href='${resume.url}?id=${index}'><i class="fas fa-edit action-btn" title="Edit"></i></a>
-    //                 <i class="fas fa-trash action-btn" onclick="deleteResume('${index}')" title="Delete"></i>
-    //             </div>
-    //         `;
-    //         // resumesData.append(divData);
-    //         $('#saved-resumes').append(divData);
-    //     });
-    // }
 
     // Edit resume
     window.editResume = function(index) {
