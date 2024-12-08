@@ -76,6 +76,7 @@ $(document).ready(function() {
         $('#saved-resumes').empty();
     
         savedResumes.forEach((resume, index) => {
+            alert(resume);
             const defaultResume = resume.default ? ' (Default)' : 'false';
             const resumeHtml = `
                 <div class="deployed-solution">
