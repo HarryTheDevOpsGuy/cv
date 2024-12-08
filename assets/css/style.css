@@ -302,6 +302,11 @@ h1, h2, h3 {
 }
 
 
+
+.form-label {
+  color: #1abc9c;
+}
+
 /* Footer */
 footer {
   background-color: #222;
