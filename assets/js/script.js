@@ -76,7 +76,7 @@ $(document).ready(function() {
         $('#saved-resumes').empty();
     
         savedResumes.forEach((resume, index) => {
-            const defaultResume = resume.default ? ' (Default)' : '';
+            const defaultResume = resume.default ? ' (Default)' : 'false';
             const resumeHtml = `
                 <div class="deployed-solution">
                     <i class="fab fa-aws"></i>
