@@ -54,7 +54,6 @@ $(document).ready(function() {
         if (existingIndex !== -1) {
             savedResumes[existingIndex] = { id: resumeId, name: resumeName, title: resumeTitle, content: resumeContent , url: resumeUrl, default: savedResumes[existingIndex].default };
         } else {
-            alert(savedResumes[existingIndex].default);
             savedResumes.push({ id: resumeId, name: resumeName, title: resumeTitle, content: resumeContent, url: resumeUrl, default: false });
         }
     
