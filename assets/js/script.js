@@ -12,7 +12,9 @@ $(document).ready(function() {
   
 
 
-  
+    function showMessage(message) { 
+        $('#successMessage').text(message).fadeIn().delay(2000).fadeOut(); 
+    }
 
 
     // Create new resume with unique ID
@@ -61,6 +63,7 @@ $(document).ready(function() {
         markAsDefault(resumeId);
         loadSavedResumes();
         editResume(resumeId);
+        showMessage('Resume saved successfully!');
         
     });
     
@@ -138,7 +141,8 @@ $(document).ready(function() {
         const resumeContent = $('#resume').html();
         const resumeBase64 = btoa(unescape(encodeURIComponent(resumeContent)));
         navigator.clipboard.writeText(resumeBase64).then(function() {
-            $('#successMessage').fadeIn().delay(2000).fadeOut();
+            // $('#successMessage').fadeIn().delay(2000).fadeOut();
+            showMessage('Copied encodeded data');
         });
     });
 
@@ -148,6 +152,7 @@ $(document).ready(function() {
             const resumeContent = decodeURIComponent(escape(atob(text)));
             $('#resume').html(resumeContent);
             $('#saveResume').click();
+            showMessage('Pasted encodeded data');
         });
     });
 
