@@ -82,7 +82,7 @@ $(document).ready(function() {
             const defaultResume = resume.default ? ' (Default)' : '';
             const resumeHtml = `
                 <div class="deployed-solution">
-                    <i class="fab fa-aws"></i>
+                    <img width="48" height="48" src="assets/img/logo.png" alt="Resume-Logo"/>
                     <h4>${resume.name} - ${defaultResume}</h4>
                     <p>${resume.title}</p>
                     <i class="fas fa-edit action-btn" onclick="editResume('${index}')" title="Edit"></i>
