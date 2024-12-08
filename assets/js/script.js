@@ -60,10 +60,10 @@ $(document).ready(function() {
         }
     
         localStorage.setItem('savedResumes', JSON.stringify(savedResumes));
+        showMessage('Resume saved successfully!');
         markAsDefault(resumeId);
         loadSavedResumes();
         editResume(resumeId);
-        showMessage('Resume saved successfully!');
         
     });
     
