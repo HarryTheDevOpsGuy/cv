@@ -81,7 +81,7 @@ $(document).ready(function() {
         savedResumes.forEach((resume, index) => {           
             const defaultResume = resume.default ? ' (Default)' : '';
             const resumeHtml = `
-                <div class="deployed-solution">
+                <div class="saved-resume">
                     <img height="150" src="/cv/assets/img/logo.png" alt="Resume-Logo"/>
                     <h4>${resume.name} - ${defaultResume}</h4>
                     <p>${resume.title}</p>
