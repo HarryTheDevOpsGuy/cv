@@ -52,17 +52,15 @@ $(document).ready(function() {
     
         const existingIndex = savedResumes.findIndex(resume => resume.id === resumeId);
         if (existingIndex !== -1) {
-            savedResumes[existingIndex] = { id: resumeId, name: resumeName, title: resumeTitle, content: resumeContent , url: resumeUrl, default: savedResumes[existingIndex].default };
-            
+            savedResumes[existingIndex] = { id: resumeId, name: resumeName, title: resumeTitle, content: resumeContent , url: resumeUrl, default: savedResumes[existingIndex].default };      
         } else {
             savedResumes.push({ id: resumeId, name: resumeName, title: resumeTitle, content: resumeContent, url: resumeUrl, default: false });
         }
     
         localStorage.setItem('savedResumes', JSON.stringify(savedResumes));
-
-        // markAsDefault(resumeId);
-        // loadSavedResumes();
-        // editResume(existingIndex);
+        markAsDefault(resumeId);
+        loadSavedResumes();
+        editResume(resumeId);
         
     });
     
