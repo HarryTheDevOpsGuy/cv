@@ -67,8 +67,6 @@ $(document).ready(function() {
         const savedResumes = JSON.parse(localStorage.getItem('savedResumes')) || [];
         savedResumes.forEach(resume => resume.default = (resume.id === resumeId));
         localStorage.setItem('savedResumes', JSON.stringify(savedResumes));
-
-        alert(JSON.stringify(savedResumes));
         loadSavedResumes();
     }
 
@@ -78,8 +76,7 @@ $(document).ready(function() {
         const savedResumes = localStorage.getItem('savedResumes') ? JSON.parse(localStorage.getItem('savedResumes')) : [];
         $('#saved-resumes').empty();
     
-        savedResumes.forEach((resume, index) => {
-            
+        savedResumes.forEach((resume, index) => {           
             const defaultResume = resume.default ? ' (Default)' : 'false';
             const resumeHtml = `
                 <div class="deployed-solution">
