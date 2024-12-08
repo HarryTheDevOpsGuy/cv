@@ -151,8 +151,8 @@ $(document).ready(function() {
         navigator.clipboard.readText().then(function(text) {
             const resumeContent = decodeURIComponent(escape(atob(text)));
             $('#resume').html(resumeContent);
-            $('#saveResume').click();
             showMessage('Pasted encodeded data');
+            $('#saveResume').click();
         });
     });
 
