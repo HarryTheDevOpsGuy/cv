@@ -180,7 +180,8 @@ $(document).ready(function() {
     $('#fontSizeControl').on('input', function() {
         const fontSize = $(this).val();
         setFontSize(fontSize);
-        $('#fontSizeValue').text(fontSize + '%');
+        showMessage(fontSize + '%');
+        // $('#fontSizeValue').text(fontSize + '%');
     });
 
     // Smooth scrolling for internal links
