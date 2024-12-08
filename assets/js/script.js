@@ -40,9 +40,8 @@ $(document).ready(function() {
         localStorage.setItem('savedResumes', JSON.stringify(savedResumes));
         window.location.href = 'resume-editor.html';
     });
-    
 
-    // Save resume
+
     $('#saveResume').click(function() {
         const resumeContent = $('#resume').html();
         const resumeName = $('#name').text();
@@ -50,25 +49,34 @@ $(document).ready(function() {
         const resumeId = $('#resume').attr('data-id') || 'resume-' + Date.now();
         const resumeUrl = window.location.origin + window.location.pathname;
         const savedResumes = localStorage.getItem('savedResumes') ? JSON.parse(localStorage.getItem('savedResumes')) : [];
-        
+    
         const existingIndex = savedResumes.findIndex(resume => resume.id === resumeId);
         if (existingIndex !== -1) {
-            savedResumes[existingIndex] = { id: resumeId, name: resumeName, title: resumeTitle, content: resumeContent , url: resumeUrl };
+            savedResumes[existingIndex] = { id: resumeId, name: resumeName, title: resumeTitle, content: resumeContent , url: resumeUrl, default: savedResumes[existingIndex].default };
         } else {
-            savedResumes.push({ id: resumeId, name: resumeName, title: resumeTitle, content: resumeContent, url: resumeUrl });
+            savedResumes.push({ id: resumeId, name: resumeName, title: resumeTitle, content: resumeContent, url: resumeUrl, default: false });
         }
-
+    
         localStorage.setItem('savedResumes', JSON.stringify(savedResumes));
         loadSavedResumes();
     });
+    
+    // make resume as default 
+    function markAsDefault(resumeId) {
+        const savedResumes = JSON.parse(localStorage.getItem('savedResumes')) || [];
+        savedResumes.forEach(resume => resume.default = (resume.id === resumeId));
+        localStorage.setItem('savedResumes', JSON.stringify(savedResumes));
+        loadSavedResumes();
+    }
 
-    // Load saved resumes
+    // load resume in saved list on ui 
     function loadSavedResumes() {
-        const savedResumes = localStorage.getItem('savedResumes') ? JSON.parse(localStorage.getItem('savedResumes')) : [];
-        const resumesData = document.getElementById("saved-resumes");
-        // resumesData.innerHTML = "";
-        savedResumes.forEach((resume, index) => {
-            divData = `
+        const savedResumes = JSON.parse(localStorage.getItem('savedResumes')) || [];
+        $('#saved-resumes').empty();
+    
+        savedResumes.forEach(resume => {
+            const defaultText = resume.default ? ' (Default)' : '';
+            const resumeHtml = `
                 <div class="deployed-solution">
                     <i class="fab fa-aws"></i>
                     <h4>${resume.name}</h4>
@@ -77,15 +85,59 @@ $(document).ready(function() {
                     <i class="fas fa-trash action-btn" onclick="deleteResume('${index}')" title="Delete"></i>
                 </div>
             `;
-            // resumesData.append(divData);
-            $('#saved-resumes').append(divData);
+            $('#saved-resumes').append(resumeHtml);
         });
     }
+    
+    
+    
+
+    // Save resume
+    // $('#saveResume').click(function() {
+    //     const resumeContent = $('#resume').html();
+    //     const resumeName = $('#name').text();
+    //     const resumeTitle = $('#title').text() || 'cv-builder';
+    //     const resumeId = $('#resume').attr('data-id') || 'resume-' + Date.now();
+    //     const resumeUrl = window.location.origin + window.location.pathname;
+    //     const savedResumes = localStorage.getItem('savedResumes') ? JSON.parse(localStorage.getItem('savedResumes')) : [];
+        
+    //     const existingIndex = savedResumes.findIndex(resume => resume.id === resumeId);
+    //     if (existingIndex !== -1) {
+    //         savedResumes[existingIndex] = { id: resumeId, name: resumeName, title: resumeTitle, content: resumeContent , url: resumeUrl };
+    //     } else {
+    //         savedResumes.push({ id: resumeId, name: resumeName, title: resumeTitle, content: resumeContent, url: resumeUrl });
+    //     }
+
+    //     localStorage.setItem('savedResumes', JSON.stringify(savedResumes));
+    //     loadSavedResumes();
+    // });
+
+    // Load saved resumes
+    // function loadSavedResumes() {
+    //     const savedResumes = localStorage.getItem('savedResumes') ? JSON.parse(localStorage.getItem('savedResumes')) : [];
+    //     const resumesData = document.getElementById("saved-resumes");
+    //     // resumesData.innerHTML = "";
+    //     savedResumes.forEach((resume, index) => {
+    //         const defaultResume = resume.default;
+    //         divData = `
+    //             <div class="deployed-solution">
+    //                 <i class="fab fa-aws"></i>
+    //                 <h4>${resume.name}</h4>
+    //                 <p>${resume.title}</p>
+    //                 <a href='${resume.url}?id=${index}'><i class="fas fa-edit action-btn" title="Edit"></i></a>
+    //                 <i class="fas fa-trash action-btn" onclick="deleteResume('${index}')" title="Delete"></i>
+    //             </div>
+    //         `;
+    //         // resumesData.append(divData);
+    //         $('#saved-resumes').append(divData);
+    //     });
+    // }
 
     // Edit resume
     window.editResume = function(index) {
         const savedResumes = localStorage.getItem('savedResumes') ? JSON.parse(localStorage.getItem('savedResumes')) : [];
         const resume = savedResumes[index];
+        markAsDefault(resume.id);
         $('#resume').attr('data-id', resume.id).html(resume.content);
         highlightActiveResume();
     };
