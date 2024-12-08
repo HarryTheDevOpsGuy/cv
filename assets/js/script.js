@@ -75,7 +75,7 @@ $(document).ready(function() {
         const savedResumes = localStorage.getItem('savedResumes') ? JSON.parse(localStorage.getItem('savedResumes')) : [];
         $('#saved-resumes').empty();
     
-        savedResumes.forEach(resume => {
+        savedResumes.forEach((resume, index) => {
             const defaultResume = resume.default ? ' (Default)' : '';
             const resumeHtml = `
                 <div class="deployed-solution">
