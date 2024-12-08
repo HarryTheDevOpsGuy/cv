@@ -5,10 +5,10 @@
 $(document).ready(function() {
 
     // Function to get the value of 'id' from the URL
-    function getParams(params) {
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(params);
-    }
+    // function getParams(params) {
+    //     const urlParams = new URLSearchParams(window.location.search);
+    //     return urlParams.get(params);
+    // }
   
 
 
@@ -79,7 +79,7 @@ $(document).ready(function() {
         $('#saved-resumes').empty();
     
         savedResumes.forEach((resume, index) => {           
-            const defaultResume = resume.default ? ' (Default)' : 'false';
+            const defaultResume = resume.default ? ' (Default)' : '';
             const resumeHtml = `
                 <div class="deployed-solution">
                     <i class="fab fa-aws"></i>
@@ -89,11 +89,20 @@ $(document).ready(function() {
                     <i class="fas fa-trash action-btn" onclick="deleteResume('${index}')" title="Delete"></i>
                 </div>
             `;
+
             $('#saved-resumes').append(resumeHtml);
-        });
+
+            //  To load default resume in editor 
+            if (resume.url === window.location.href && resume.default ) {
+                $('#resume').attr('data-id', resume.id).html(resume.content);
+            }
+
+        }); 
+
     }
     
-    
+
+
 
     // Edit resume
     window.editResume = function(index) {
