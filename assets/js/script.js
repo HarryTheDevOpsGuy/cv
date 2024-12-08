@@ -80,8 +80,9 @@ $(document).ready(function() {
     
         savedResumes.forEach((resume, index) => {           
             const defaultResume = resume.default ? ' (Default)' : '';
+            const defaultResumeClass =  resume.default ? 'default-resume' : '';             
             const resumeHtml = `
-                <div class="saved-resume">
+                <div class="saved-resume ${defaultResumeClass}">
                     <img height="150" src="/cv/assets/img/logo.png" alt="Resume-Logo"/>
                     <h4>${resume.name} - ${defaultResume}</h4>
                     <p>${resume.title}</p>
@@ -95,7 +96,6 @@ $(document).ready(function() {
             //  To load default resume in editor 
             if (resume.url === window.location.href && resume.default ) {
                 $('#resume').attr('data-id', resume.id).html(resume.content);
-                $('#resume').attr('data-id', resume.id).addClass('default-resume');
             }
 
         }); 
