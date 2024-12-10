@@ -13,6 +13,21 @@ title: "CV - Resume Builder"
     padding: 10px;
     border-radius: 5px;
 }
+
+
+
+
+.carousel-caption h5 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.carousel-caption p {
+    font-size: 1rem;
+    font-style: italic;
+}
+
+
 </style>
 
 
@@ -111,3 +126,38 @@ title: "CV - Resume Builder"
         <span class="visually-hidden">Next</span>
     </button>
 </div>
+
+
+
+
+
+
+<!-- New slider  -->
+
+<div id="postCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+      <!-- Loop through Jekyll posts -->
+      {% assign first_post = true %}
+      {% for post in site.posts limit: 5 %}
+          <div class="carousel-item {% if first_post %}active{% endif %}">
+              <a href="{{ post.url }}">
+                  <img src="{{ post.featured_image | default: '/cv/assets/img/slider3.jpg' }}" class="d-block w-100" alt="{{ post.title }}">
+                  <div class="carousel-caption d-none d-md-block">
+                      <h5>{{ post.title }}</h5>
+                      <p>{{ post.excerpt }}</p>
+                  </div>
+              </a>
+          </div>
+          {% assign first_post = false %}
+      {% endfor %}
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#postCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#postCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
